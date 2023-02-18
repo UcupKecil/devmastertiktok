@@ -69,7 +69,7 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                 } else {
-                    $pleaseRemove = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
+                    $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                     //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                 }
 
@@ -80,7 +80,7 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                 } else {
-                    $pleaseRemove = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video);
+                    $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                     //$pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                 }
 
@@ -205,7 +205,7 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/images/courses/video/poster/' . $course->id);
                 } else {
-                    $destination        = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id);
+                    $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id;
                     //$destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
                 }
 
@@ -218,7 +218,7 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/videos/courses/' . $course->id);
                 } else {
-                    $destination        = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id);
+                    $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id;
                     //$destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
                 }
 
@@ -321,7 +321,7 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                     } else {
-                        $pleaseRemove = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
+                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                     }
 
@@ -336,7 +336,7 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/courses/video/poster/' . $course->id);
                     } else {
-                        $destination        = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id);
+                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id;
                         //$destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
                     }
 
@@ -351,7 +351,7 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                     } else {
-                        $pleaseRemove = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video);
+                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                     }
 
@@ -367,7 +367,7 @@ class CourseVideoController extends Controller
                         $destination        = base_path('public/assets/videos/courses/' . $course->id);
                     } else {
                         $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-paymentmethod/';
-                        $destination        = base_path('/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id);
+                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id;
                         //$destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
                     }
 

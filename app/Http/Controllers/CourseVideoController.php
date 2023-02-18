@@ -267,7 +267,11 @@ class CourseVideoController extends Controller
                 'success' => 'Materi kelas berhasil ditambahkan'
             ]);
         } catch (Exception $e) {
-            if (env('APP_ENV') == 'local') return dd($e);
+            if (env('APP_ENV') == 'local'){return dd($e);} 
+            else {
+                return dd($e);
+            }
+
 
             return redirect()->back()->withInput()->withErrors(['error' => 'Terjadi kesalahan teknis']);
         }
@@ -418,7 +422,10 @@ class CourseVideoController extends Controller
                 'success' => 'Materi kelas berhasil diperbaharui'
             ]);
         } catch (Exception $e) {
-            if (env('APP_ENV') == 'local') return dd($e);
+            if (env('APP_ENV') == 'local'){return dd($e);} 
+            else {
+                return dd($e);
+            }
 
             return redirect()->back()->withInput()->withErrors(['error' => 'Terjadi kesalahan teknis']);
         }

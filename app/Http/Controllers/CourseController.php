@@ -52,7 +52,8 @@ class CourseController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/courses/' . $course->image);
                     } else {
-                        $pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/' . $course->image;
+                        $pleaseRemove = base_path('assets/images/courses/' . $course->image);
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/' . $course->image;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -157,7 +158,8 @@ class CourseController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/images/courses');
                 } else {
-                    $destination        = getDevelopmentPublicPath() . '/assets/images/courses';
+                    $destination        = base_path('assets/images/courses');
+                    //$destination        = getDevelopmentPublicPath() . '/assets/images/courses';
                 }
 
                 $request->file('image')->move($destination, $image);
@@ -214,7 +216,8 @@ class CourseController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/courses/' . $course->image);
                     } else {
-                        $pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/' . $course->image;
+                        $pleaseRemove = base_path('assets/images/courses/' . $course->image);
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/' . $course->image;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -228,7 +231,8 @@ class CourseController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/courses');
                     } else {
-                        $destination        = getDevelopmentPublicPath() . '/assets/images/courses';
+                        $destination        = base_path('assets/images/courses');
+                        //$destination        = getDevelopmentPublicPath() . '/assets/images/courses';
                     }
 
                     $request->file('image')->move($destination, $image);

@@ -69,7 +69,8 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                 } else {
-                    $pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
+                    $pleaseRemove = base_path('assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
+                    //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                 }
 
                 if (file_exists($pleaseRemove)) {
@@ -79,7 +80,8 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                 } else {
-                    $pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
+                    $pleaseRemove = base_path('assets/videos/courses/' . $course->id . '/' . $oldData->video);
+                    //$pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                 }
 
                 if (file_exists($pleaseRemove)) {
@@ -203,7 +205,8 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/images/courses/video/poster/' . $course->id);
                 } else {
-                    $destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
+                    $destination        = base_path('assets/images/courses/video/poster/' . $course->id);
+                    //$destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
                 }
 
                 $request->file('poster')->move($destination, $poster);
@@ -215,7 +218,8 @@ class CourseVideoController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/videos/courses/' . $course->id);
                 } else {
-                    $destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
+                    $destination        = base_path('assets/videos/courses/' . $course->id);
+                    //$destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
                 }
 
                 $request->file('video')->move($destination, $video);
@@ -317,7 +321,8 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                     } else {
-                        $pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
+                        $pleaseRemove = base_path('assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -331,7 +336,8 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/courses/video/poster/' . $course->id);
                     } else {
-                        $destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
+                        $destination        = base_path('assets/images/courses/video/poster/' . $course->id);
+                        //$destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
                     }
 
                     $request->file('poster')->move($destination, $poster);
@@ -345,7 +351,8 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                     } else {
-                        $pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
+                        $pleaseRemove = base_path('assets/videos/courses/' . $course->id . '/' . $oldData->video);
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -359,7 +366,8 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/videos/courses/' . $course->id);
                     } else {
-                        $destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
+                        $destination        = base_path('assets/videos/courses/' . $course->id);
+                        //$destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
                     }
 
                     $request->file('video')->move($destination, $video);

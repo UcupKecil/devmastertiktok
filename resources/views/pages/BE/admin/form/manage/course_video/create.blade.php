@@ -26,7 +26,7 @@
     <section class="course-archive">
         <form action="{{ url('/manage/course/videos/' . $slug) }}" method="post" id="form" autocomplete="false"
             enctype="multipart/form-data">
-            <input type="hidden" name="seconds" id="seconds">
+            <input type="text" name="seconds" id="seconds">
             @csrf
             <div class="container">
                 <div class="row">

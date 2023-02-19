@@ -137,13 +137,8 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="category-btn btn-default text-center">
-                            <a href="#">all courses</a>
-                        </div>
-                    </div>
-                </div>
+                
+                
             </div>
         </section>
     @endif
@@ -343,6 +338,79 @@
         </div>
     </section>
     <!--end why choose area-->
+    <!--start newsletter area-->
+    <section class="newsletter-area">
+        <div class="container">
+        <div class="course-curriculum">
+                                        <h3>QNA Tanya Jawab Tentang Kelas:</h3>
+                                        <div id="accordion">
+                                            <!--start curriculum single-->
+                                            <div class="card active">
+                                                <div class="card-header two active">
+                                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">Untuk daftar apakah perlu banyak followers dulu??</a>
+                                                </div>
+                                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                                    <div class="card-body current">
+                                                        <div class="course-lesson">
+                                                            <p>TIDAK.! Semua testimoni hasil dari peserta kelas, mereka memulai praktek dari NOL Followers</p>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                            <!--start curriculum single-->
+                                            <div class="card">
+                                                <div class="card-header two">
+                                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">Apakah cocok untuk pemula bahkan yang belum punya akun TikTok?</a>
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <div class="course-lesson">
+                                                            <p>YA.! Sangat cocok. Materi kelas dimulai dari NOL dari membuat akun TikTok</p>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                            <!--start curriculum single-->
+                                            <div class="card">
+                                                <div class="card-header two">
+                                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">Apakah ada biaya perpanjangan tahunan atau biaya lainnya setelah daftar?</a>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <div class="course-lesson">
+                                                            <p>Kelas ini hanya sekali bayar unt seumur hidup dan GRATIS update materi tanpa syarat, dan dalam menjalankan
+                                                                 praktekknya tidak perlu biaya lagi kecuali kota internet saja.</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                            <!--start curriculum single-->
+                                            <div class="card">
+                                                <div class="card-header two">
+                                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                                                    Apakah ada jaminan pasti berhasil?</a>
+                                                </div>
+                                                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        
+                                                        <div class="course-lesson">
+                                                            <p>TIDAK ADA.! Keberhasilan di tangan peserta dalam mempraktekkan materi kelas. Saya hanya bisa tunjukkan Testimoni/BUKTI yang sudah berhasil.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                        </div>
+                                    </div>
+        </div>
+    </section>
+    <!--end newsletter area-->
    
     
 @endsection

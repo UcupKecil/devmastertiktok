@@ -34,6 +34,7 @@ class StaticPageController extends Controller
         $course = DB::table('courses')
             ->where('slug', $slug)
             ->first();
+        $setting =  Setting::find(1);
 
         if (!$slug) return abort(404);
 
@@ -43,6 +44,7 @@ class StaticPageController extends Controller
 
         $data = [
             'course'    => $course,
+            'setting'    => $setting,
             'title'     => $course->name,
             'videos'    => $videos,
         ];

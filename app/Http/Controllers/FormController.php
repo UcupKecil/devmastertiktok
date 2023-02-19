@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Setting;
 
 class FormController extends Controller
 {
     // NOTE GET /manage/course/create
     public function courseCreateForm()
     {
+        $setting =  Setting::find(1);
         try {
             $js = 'components.scripts.BE.admin.form.manage.course.create';
 
             $data = [
                 'backUrl'   => url('/manage/course'),
                 'js'        => $js,
+                'setting'    => $setting,
                 'title'     => 'Tambah Course',
             ];
 
@@ -31,6 +34,7 @@ class FormController extends Controller
     {
         try {
             $course = DB::table('courses')->where('id', $id)->first();
+            $setting =  Setting::find(1);
 
             if (!$course) return abort(404);
 
@@ -39,6 +43,7 @@ class FormController extends Controller
             $data = [
                 'backUrl'   => url('/manage/course'),
                 'course'    => $course,
+                'setting'    => $setting,
                 'id'        => $id,
                 'js'        => $js,
                 'title'     => 'Edit Course',
@@ -56,6 +61,7 @@ class FormController extends Controller
     {
         try {
             $course = DB::table('courses')->where('slug', $slug)->first();
+            $setting =  Setting::find(1);
 
             if (!$course) return abort(404);
 
@@ -66,6 +72,7 @@ class FormController extends Controller
                 'course'    => $course->name,
                 'js'        => $js,
                 'slug'      => $slug,
+                'setting'    => $setting,
                 'title'     => 'Tambah Materi Kelas',
             ];
 
@@ -81,6 +88,7 @@ class FormController extends Controller
     {
         try {
             $row = DB::table('course_videos')->where('id', $id)->first();
+            $setting =  Setting::find(1);
 
             if (!$row) return abort(404);
 
@@ -95,6 +103,7 @@ class FormController extends Controller
                 'js'        => $js,
                 'row'       => $row,
                 'slug'      => $course->slug,
+                'setting'    => $setting,
                 'title'     => 'Edit Materi Kelas',
             ];
 

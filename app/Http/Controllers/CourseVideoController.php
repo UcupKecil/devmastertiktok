@@ -166,6 +166,7 @@ class CourseVideoController extends Controller
         ini_set('max_execution_time', -1);
 
         try {
+            
             $course = DB::table('courses')->where('slug', $slug)->first();
 
             if (!$course) return abort(404);

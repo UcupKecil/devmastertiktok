@@ -6,18 +6,22 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\Setting;
+
 
 class BankController extends Controller
 {
     // NOTE /master-data/bank
     public function index()
     {
+        $setting =  Setting::find(1);
         try {
             $js = 'components.scripts.BE.admin.masterData.bank';
 
             $data = [
                 'js'    => $js,
                 'title' => 'Bank',
+                'setting'    => $setting,
             ];
 
             return view('pages.BE.admin.masterData.bank', $data);

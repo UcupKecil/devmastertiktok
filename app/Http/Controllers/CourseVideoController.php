@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\Setting;
 
 class CourseVideoController extends Controller
 {
     // NOTE GET /manage/course/videos/{slug}
     public function index($slug)
     {
+        $setting =  Setting::find(1);
         try {
             $course = DB::table('courses')->where('slug', $slug)->first();
 
@@ -25,6 +27,7 @@ class CourseVideoController extends Controller
                 'formUrl'   => url('/manage/course/create-video/' . $slug),
                 'js'        => $js,
                 'slug'      => $slug,
+                'setting'    => $setting,
                 'title'     => 'Materi',
             ];
 

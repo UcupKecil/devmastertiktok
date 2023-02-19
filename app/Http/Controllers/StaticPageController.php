@@ -93,7 +93,7 @@ class StaticPageController extends Controller
     public function register()
     {
         if (!Session::get('course')) return redirect()->back();
-
+        $setting =  Setting::find(1);
         $course = DB::table('courses')->where('id', Session::get('course'))->first();
 
         if (!$course) return redirect()->back();
@@ -101,6 +101,7 @@ class StaticPageController extends Controller
         $data = [
             'title'     => 'Register',
             'course'    => $course,
+            'setting'    => $setting,
             'js'        => 'components.scripts.FE.auth.register'
         ];
 

@@ -105,4 +105,30 @@ class FormController extends Controller
             return abort(500);
         }
     }
+
+    // NOTE GET /manage/setting/edit/{id}
+    public function settingEditForm($id)
+    {
+        try {
+            $setting = DB::table('settings')->where('id', $id)->first();
+
+            if (!$setting) return abort(404);
+
+            $js = 'components.scripts.BE.admin.form.manage.setting.edit';
+
+            $data = [
+                'backUrl'   => url('/manage/setting'),
+                'setting'    => $setting,
+                'id'        => $id,
+                'js'        => $js,
+                'title'     => 'Edit Setting',
+            ];
+
+            return view('pages.BE.admin.form.manage.setting.edit', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
 }

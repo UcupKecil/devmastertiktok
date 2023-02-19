@@ -6,11 +6,12 @@
                 <!--start footer widget-->
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget logo">
-                        <a href="#"><img src="{{ asset('assets/templates/omexo/assets/images/logo-white-1.png') }}"
+                        <a href="#"><img src="{{ asset('/assets/images/settings/' . $setting->image) }}"
                                 alt="logo"></a>
                         <div class="footer-about-description">
-                            <p>We are providing high-quality online courses for about ten years. Our all instructors
-                                expert and highly experienced.</p>
+                        <div style="word-wrap: break-word;">
+                            {!! $setting->detail !!}
+                        </div>
                         </div>
                         <h6>Follow Us</h6>
                         <ul class="footer-social-icons">

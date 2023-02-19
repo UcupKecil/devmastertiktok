@@ -8,7 +8,7 @@
         <div class="sidebar-content">
             <div class="sidebar-logo">
                 <a href="{{ url('/') }}">
-                    <img class="img-fluid" src="{{ asset('assets/templates/omexo/assets/images/logo.png') }}"
+                    <img class="img-fluid" src="{{ asset('/assets/images/settings/' . $setting->image) }}"
                         alt="logo.png">
                 </a>
             </div>
@@ -19,8 +19,8 @@
             </div>
             <div class="contact-info">
                 <ul>
-                    <li><i class="fa fa-envelope"></i> support@example.com</li>
-                    <li><i class="fa fa-phone"></i> +98 012345 6789</li>
+                    <li><i class="fa fa-envelope"></i> {{$setting->email}}</li>
+                    <li><i class="fa fa-phone"></i> {{$setting->hp}}</li>
                 </ul>
             </div>
             <div class="social-icon">

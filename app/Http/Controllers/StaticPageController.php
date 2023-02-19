@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\Setting;
+
 
 class StaticPageController extends Controller
 {
@@ -16,9 +18,11 @@ class StaticPageController extends Controller
             ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
-
+        $setting =  Setting::find(1);
+            
         $data = [
             'courses'   => $courses,
+            'setting'   => $setting,
             'title'     => 'Home'
         ];
 

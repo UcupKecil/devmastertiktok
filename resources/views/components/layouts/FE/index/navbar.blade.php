@@ -16,8 +16,8 @@
                 <!--start header contact info-->
                 <div class="header-contact-info text-right">
                     <ul>
-                        <li><i class="fa fa-envelope"></i> support@example.com</li>
-                        <li><i class="fa fa-phone"></i> +98 012345 6789</li>
+                        <li><i class="fa fa-envelope"></i> {{$setting->email}}</li>
+                        <li><i class="fa fa-phone"></i> {{$setting->hp}}</li>
                     </ul>
                 </div>
                 <!--end header contact info-->
@@ -41,7 +41,7 @@
             <div class="main-menu-wrap">
                 <div class="site-logo">
                     <a class="logo" href="{{ url('/') }}">
-                        <img src="{{ asset('assets/templates/omexo/assets/images/logo.png') }}" alt="logo">
+                        <img src="{{ asset('/assets/images/settings/' . $setting->image) }}" alt="logo">
                     </a>
                 </div>
 

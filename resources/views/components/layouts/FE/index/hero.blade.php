@@ -1,4 +1,4 @@
-<section class="hero-area">
+<section class="hero-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
     <div class="container">
         <div class="caption-content text-center">
             <h4>Start learning from home</h4>

@@ -77,8 +77,10 @@ class StaticPageController extends Controller
     // NOTE GET /auth/login
     public function login()
     {
+        $setting =  Setting::find(1);
         $data = [
-            'title' => 'Login'
+            'title' => 'Login',
+            'setting'    => $setting,
         ];
 
         return view('pages.FE.auth.login', $data);

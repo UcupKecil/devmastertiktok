@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\Setting;
 
 class CourseController extends Controller
 {
     // NOTE GET /manage/course
     public function index()
     {
+        $setting =  Setting::find(1);
         try {
             $js = 'components.scripts.BE.admin.manage.course';
 
@@ -20,6 +22,7 @@ class CourseController extends Controller
                 'formUrl'   => url('/manage/course/create'),
                 'js'        => $js,
                 'title'     => 'Course',
+                'setting'    => $setting,
             ];
 
             return view('pages.BE.admin.manage.course', $data);

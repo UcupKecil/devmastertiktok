@@ -52,6 +52,7 @@ class StaticPageController extends Controller
     // NOTE GET /dashboard
     public function dashboard()
     {
+        $setting =  Setting::find(1);
         $unpaidOrder = DB::table('orders')
             ->join('courses', 'courses.id', '=', 'orders.course_id')
             ->select([
@@ -69,6 +70,7 @@ class StaticPageController extends Controller
             'js'            => $js,
             'title'         => 'Dashboard',
             'unpaidOrder'   => $unpaidOrder,
+            'setting'   => $setting,
             'user'          => $user,
         ];
 

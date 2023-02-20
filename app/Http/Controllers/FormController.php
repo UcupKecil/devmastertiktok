@@ -50,6 +50,27 @@ class FormController extends Controller
             return abort(500);
         }
     }
+    // NOTE GET /manage/qna/create
+    public function qnaCreateForm()
+    {
+        $setting =  Setting::find(1);
+        try {
+            $js = 'components.scripts.BE.admin.form.manage.qna.create';
+
+            $data = [
+                'backUrl'   => url('/manage/qna'),
+                'js'        => $js,
+                'setting'    => $setting,
+                'title'     => 'Tambah Qna',
+            ];
+
+            return view('pages.BE.admin.form.manage.qna.create', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
     // NOTE GET /manage/course/create
     public function testistudentCreateForm()
     {
@@ -119,6 +140,33 @@ class FormController extends Controller
             ];
 
             return view('pages.BE.admin.form.manage.benefit.edit', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
+    // NOTE GET /manage/qna/edit/{id}
+    public function qnaEditForm($id)
+    {
+        try {
+            $qna = DB::table('qnas')->where('id', $id)->first();
+            $setting =  Setting::find(1);
+
+            if (!$qna) return abort(404);
+
+            $js = 'components.scripts.BE.admin.form.manage.qna.edit';
+
+            $data = [
+                'backUrl'   => url('/manage/qna'),
+                'qna'    => $qna,
+                'setting'    => $setting,
+                'id'        => $id,
+                'js'        => $js,
+                'title'     => 'Edit Course',
+            ];
+
+            return view('pages.BE.admin.form.manage.qna.edit', $data);
         } catch (Exception $e) {
             if (env(APP_ENV) == 'local') return dd($e);
 

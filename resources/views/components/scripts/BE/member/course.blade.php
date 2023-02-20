@@ -17,13 +17,13 @@
                     $('#video').html('');
 
                     $('#video').append(
-                        `<video width="1000" height="400" controls poster="/assets/images/courses/video/poster/${response.course_id}/${response.poster}">
+                        `<video style="width: 100%;
+                            height: auto;" controls poster="/assets/images/courses/video/poster/${response.course_id}/${response.poster}">
                         <source src="/assets/videos/courses/${response.course_id}/${response.video}">
                     </video>`
                     );
 
-                    $('#video').append('<hr>');
-                    $('#video').append(response.detail);
+                    
                 }
             });
 

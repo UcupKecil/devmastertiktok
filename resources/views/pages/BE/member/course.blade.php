@@ -21,17 +21,19 @@
     <section class="course-archive">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-8 border">
+                <div class="col-12 border">
+               
+                
                     <div id="video">
-                        <video width="1000" height="400" controls
-                            poster="{{ asset('/assets/images/courses/video/poster/' . $course->id . '/' . $onDisplay->poster) }}">
+                        <video style="width: 100%;
+                            height: auto;" width="400" height="400" controls
+                            poster="">
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}">
                         </video>
-                        <hr>
-                        {!! $onDisplay->detail !!}
+                      
                     </div>
                 </div>
-                <div class="col-4 border">
+                <div class="col-12 border" >
                     @foreach ($videos as $video)
                         <div class="card video-card my-2 border {{ $video->id == $valid->last_video ? 'bg-warning' : '' }}"
                             style="cursor: pointer !important;" data-id="{{ $video->id }}">
@@ -40,9 +42,7 @@
                                     <div class="col-10">
                                         <p>{{ $video->name }}</p>
                                     </div>
-                                    <div class="col-2">
-                                        <p>{{ $video->duration }}</p>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

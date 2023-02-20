@@ -119,16 +119,30 @@ class StaticPageController extends Controller
             ->where('orders.user_id', auth()->user()->id)
             ->get();
 
+        $courses = null;
+
+        if (Auth::user()->getRoleNames()[0] == 'Member') {
+            $courses = DB::table('course_students')
+                ->join('courses', 'courses.id', '=', 'course_students.course_id')
+                ->select([
+                    'courses.*'
+                ])
+                ->where('course_students.user_id', auth()->user()->id)
+                ->orderBy('course_students.id', 'desc')
+                ->get();
+        }
+
         $user = DB::table('user_details')->where('user_id', Auth::user()->id)->first();
 
         $js = 'components.scripts.BE.' . strtolower(Auth::user()->getRoleNames()[0]) . '.dashboard';
 
         $data = [
+            'courses'       => $courses,
             'js'            => $js,
             'title'         => 'Dashboard',
             'unpaidOrder'   => $unpaidOrder,
-            'setting'   => $setting,
             'user'          => $user,
+            'setting'    => $setting,
         ];
 
         return view('pages.BE.' . strtolower(Auth::user()->getRoleNames()[0]) . '.dashboard', $data);

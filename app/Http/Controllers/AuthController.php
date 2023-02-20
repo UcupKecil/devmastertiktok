@@ -143,9 +143,13 @@ class AuthController extends Controller
                     $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
                     $signature = hash_hmac('sha256', 'T19660' . null . intval($course->price), 'Et5y4-nDMd3-LpHCM-KWvPQ-aqqWV');
                 } else {
-                    $url    = 'https://tripay.co.id/api/transaction/create';
-                    $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
-                    $signature = hash_hmac('sha256', 'T19686' . null . intval($course->price), 'ASMIM-xFYzi-F7U9V-Q8XJf-CsKGG');
+                    $url    = 'https://tripay.co.id/api-sandbox/transaction/create';
+                    $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
+                    $signature = hash_hmac('sha256', 'T19660' . null . intval($course->price), 'Et5y4-nDMd3-LpHCM-KWvPQ-aqqWV');
+
+                    // $url    = 'https://tripay.co.id/api/transaction/create';
+                    // $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
+                    // $signature = hash_hmac('sha256', 'T19686' . null . intval($course->price), 'ASMIM-xFYzi-F7U9V-Q8XJf-CsKGG');
                 }
 
                 $course = DB::table('courses')->where('id', Session::get('course'))->first();

@@ -33,6 +33,13 @@
                 </ul>
             </div>
             <div class="header-log-reg">
+            @auth
+                        <ul>
+                            <li><a href="/">{{ Auth::user()->name }}</a></li>
+                            <li><small>|</small></li>
+                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                        </ul>
+            @endauth
             @guest
                 <ul>
                     <li><a href="{{ url('/auth/login') }}">Login</a></li>

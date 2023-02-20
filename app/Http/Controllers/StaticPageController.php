@@ -47,6 +47,7 @@ class StaticPageController extends Controller
     public function classroom($slug)
     {
         $course = DB::table('courses')->where('slug', $slug)->first();
+        $setting =  Setting::find(1);
 
         if (!$course) return abort(404);
 
@@ -79,6 +80,7 @@ class StaticPageController extends Controller
             'title'     => $course->name,
             'valid'     => $valid,
             'videos'    => $videos,
+            'setting'   => $setting,
         ];
 
         return view('pages.BE.member.course', $data);

@@ -50,6 +50,27 @@ class FormController extends Controller
             return abort(500);
         }
     }
+    // NOTE GET /manage/course/create
+    public function testistudentCreateForm()
+    {
+        $setting =  Setting::find(1);
+        try {
+            $js = 'components.scripts.BE.admin.form.manage.testi_student.create';
+
+            $data = [
+                'backUrl'   => url('/manage/testi_student'),
+                'js'        => $js,
+                'setting'    => $setting,
+                'title'     => 'Tambah Benefit',
+            ];
+
+            return view('pages.BE.admin.form.manage.testi_student.create', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
     // NOTE GET /manage/course/edit/{id}
     public function courseEditForm($id)
     {
@@ -98,6 +119,33 @@ class FormController extends Controller
             ];
 
             return view('pages.BE.admin.form.manage.benefit.edit', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
+    // NOTE GET /manage/testi_student/edit/{id}
+    public function testistudentEditForm($id)
+    {
+        try {
+            $testi_student = DB::table('testi_students')->where('id', $id)->first();
+            $setting =  Setting::find(1);
+
+            if (!$testi_student) return abort(404);
+
+            $js = 'components.scripts.BE.admin.form.manage.testi_student.edit';
+
+            $data = [
+                'backUrl'   => url('/manage/benefit'),
+                'testi_student'    => $testi_student,
+                'setting'    => $setting,
+                'id'        => $id,
+                'js'        => $js,
+                'title'     => 'Edit Testi Student',
+            ];
+
+            return view('pages.BE.admin.form.manage.testi_student.edit', $data);
         } catch (Exception $e) {
             if (env(APP_ENV) == 'local') return dd($e);
 

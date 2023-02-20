@@ -186,11 +186,11 @@
                         </div>
                         <div class="testi-client-info">
                             <div class="testi-client-img">
-                                <img src="{{ asset('assets/templates/omexo/assets/images/client-1.jpg') }}"
+                                <img src="{{ asset('/assets/images/testi_students/' . $testi_student->image) }}"
                                     class="img-fluid" alt="image">
                             </div>
                             <div class="testi-client-details">
-                                <h4>{{ $testi_student->nama }}</h4>
+                                <h4>{{ $testi_student->name }}</h4>
                                 <h6>{{ $testi_student->pekerjaan }}</h6>
                             </div>
                         </div>

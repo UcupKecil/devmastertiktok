@@ -34,9 +34,9 @@
             </div>
             <div class="header-log-reg">
                 <ul>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="{{ url('/auth/login') }}">Login</a></li>
                     <li><small>|</small></li>
-                    <li><a href="registration.html">Register</a></li>
+                    
                 </ul>
             </div>
         </div>

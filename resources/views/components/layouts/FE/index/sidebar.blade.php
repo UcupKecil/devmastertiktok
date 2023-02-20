@@ -33,11 +33,13 @@
                 </ul>
             </div>
             <div class="header-log-reg">
+            @guest
                 <ul>
                     <li><a href="{{ url('/auth/login') }}">Login</a></li>
                     <li><small>|</small></li>
                     
                 </ul>
+            @endguest
             </div>
         </div>
     </div>

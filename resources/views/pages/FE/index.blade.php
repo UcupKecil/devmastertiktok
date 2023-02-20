@@ -77,8 +77,8 @@
         </div>
     </section>
     <!--end category area-->
-    <!--start course area-->
-    @if (count($courses) > 0)
+       <!--start course area-->
+       @if (count($courses) > 0)
         <section class="course-area bg-gray">
             <div class="container">
                 <div class="row">
@@ -91,7 +91,7 @@
                     </div>
                     <!--end heading-->
                 </div>
-                
+                <div class="row">
                     @foreach ($courses as $course)
                         <div class="col-lg-4 col-md-6">
                             <div class="course-card">
@@ -136,7 +136,14 @@
                             </div>
                         </div>
                     @endforeach
-                
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="category-btn btn-default text-center">
+                            <a href="#">all courses</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     @endif

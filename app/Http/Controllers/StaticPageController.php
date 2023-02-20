@@ -43,6 +43,46 @@ class StaticPageController extends Controller
 
         return view('pages.FE.index', $data);
     }
+    // NOTE GET /mycourse/{slug}
+    public function classroom($slug)
+    {
+        $course = DB::table('courses')->where('slug', $slug)->first();
+
+        if (!$course) return abort(404);
+
+        $valid = DB::table('course_students')
+            ->where('user_id', auth()->user()->id)
+            ->where('course_id', $course->id)
+            ->first();
+
+        if (!$valid) return abort(403);
+
+        $videos = DB::table('course_videos')->where('course_id', $course->id)->orderBy('id')->get();
+
+        if (!$valid->last_video) {
+            DB::table('course_students')->where('id', $valid->id)->update([
+                'last_video' => $videos[0]->id
+            ]);
+        }
+
+        $valid = DB::table('course_students')
+            ->where('user_id', auth()->user()->id)
+            ->where('course_id', $course->id)
+            ->first();
+
+        $onDisplay = DB::table('course_videos')->where('id', $valid->last_video)->first();
+
+        $data = [
+            'course'    => $course,
+            'js'        => 'components.scripts.BE.member.course',
+            'onDisplay' => $onDisplay,
+            'title'     => $course->name,
+            'valid'     => $valid,
+            'videos'    => $videos,
+        ];
+
+        return view('pages.BE.member.course', $data);
+    }
     // NOTE GET /course/{slug}
     public function course($slug)
     {

@@ -97,6 +97,12 @@ class TripayController extends Controller
                     ]);
                 }
 
+                DB::table('course_students')->insert([
+                    'course_id'     => $order->course_id,
+                    'created_at'    => date('Y-m-d H:i:s'),
+                    'user_id'       => $order->user_id
+                ]);
+
                 echo json_encode([
                     'status'    => 'paid',
                     'success'   => true

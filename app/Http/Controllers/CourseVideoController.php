@@ -38,6 +38,17 @@ class CourseVideoController extends Controller
             return abort(500);
         }
     }
+    // NOTE GET /mycourse/change-video/{class_id}/{id}
+    public function changeVideo($class_id, $id)
+    {
+        DB::table('course_students')->where('id', $class_id)->update([
+            'last_video' => $id
+        ]);
+
+        $data = DB::table('course_videos')->where('id', $id)->first();
+
+        return response()->json($data);
+    }
     // NOTE DELETE /manage/course/videos/{slug}/{id}
     public function destroy($slug, $id)
     {

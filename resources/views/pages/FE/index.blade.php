@@ -231,11 +231,11 @@
                         <div class="col-md-6">
                             <div class="why-choose-single">
                                 <div class="why-choose-icon">
-                                    <img src="{{ asset('assets/templates/omexo/assets/images/icons/ribbon.svg') }}"
+                                    <img src="{{ asset('/assets/images/benefits/' . $benefit->image) }}"
                                         class="img-fluid" alt="image">
                                 </div>
                                 <div class="why-choose-cont">
-                                    <h3>{{$benefit->title}}</h3>
+                                    <h3>{{$benefit->name}}</h3>
                                     <div style="word-wrap: break-word;">
                                     {!! $benefit->detail !!}
                                     </div>

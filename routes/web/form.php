@@ -7,8 +7,10 @@ Route::group([
     'middleware'    => ['auth', 'role:Admin'],
 ], function () {
     Route::get('/manage/course/create', [FormController::class, 'courseCreateForm']);
+    Route::get('/manage/benefit/create', [FormController::class, 'benefitCreateForm']);
     Route::get('/manage/course/create-video/{slug}', [FormController::class, 'courseVideoCreateForm']);
     Route::get('/manage/course/edit-video/{id}', [FormController::class, 'courseVideoEditForm']);
     Route::get('/manage/course/edit/{id}', [FormController::class, 'courseEditForm']);
+    Route::get('/manage/benefit/edit/{id}', [FormController::class, 'benefitEditForm']);
     Route::get('/manage/setting/edit/{id}', [FormController::class, 'settingEditForm']);
 });

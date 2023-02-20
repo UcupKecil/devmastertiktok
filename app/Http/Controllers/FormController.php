@@ -29,6 +29,27 @@ class FormController extends Controller
             return abort(500);
         }
     }
+    // NOTE GET /manage/course/create
+    public function benefitCreateForm()
+    {
+        $setting =  Setting::find(1);
+        try {
+            $js = 'components.scripts.BE.admin.form.manage.benefit.create';
+
+            $data = [
+                'backUrl'   => url('/manage/benefit'),
+                'js'        => $js,
+                'setting'    => $setting,
+                'title'     => 'Tambah Benefit',
+            ];
+
+            return view('pages.BE.admin.form.manage.benefit.create', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
     // NOTE GET /manage/course/edit/{id}
     public function courseEditForm($id)
     {
@@ -50,6 +71,33 @@ class FormController extends Controller
             ];
 
             return view('pages.BE.admin.form.manage.course.edit', $data);
+        } catch (Exception $e) {
+            if (env(APP_ENV) == 'local') return dd($e);
+
+            return abort(500);
+        }
+    }
+    // NOTE GET /manage/course/edit/{id}
+    public function benefitEditForm($id)
+    {
+        try {
+            $benefit = DB::table('benefits')->where('id', $id)->first();
+            $setting =  Setting::find(1);
+
+            if (!$benefit) return abort(404);
+
+            $js = 'components.scripts.BE.admin.form.manage.benefit.edit';
+
+            $data = [
+                'backUrl'   => url('/manage/benefit'),
+                'benefit'    => $benefit,
+                'setting'    => $setting,
+                'id'        => $id,
+                'js'        => $js,
+                'title'     => 'Edit Course',
+            ];
+
+            return view('pages.BE.admin.form.manage.benefit.edit', $data);
         } catch (Exception $e) {
             if (env(APP_ENV) == 'local') return dd($e);
 

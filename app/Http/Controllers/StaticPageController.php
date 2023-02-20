@@ -18,10 +18,25 @@ class StaticPageController extends Controller
             ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
+        $testi_students = DB::table('testi_students')
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
+        $benefits = DB::table('benefits')
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
+        $qnas = DB::table('qnas')
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
         $setting =  Setting::find(1);
             
         $data = [
             'courses'   => $courses,
+            'testi_students'   => $testi_students,
+            'benefits'   => $benefits,
+            'qnas'   => $qnas,
             'setting'   => $setting,
             'title'     => 'Home'
         ];

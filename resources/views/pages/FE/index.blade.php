@@ -185,6 +185,8 @@
 <p>7. Bingung mau mulai dari mana</p>
 <p>8. Mau mulai bisnis tapi ga punya modal</p>
 <p>9. Sering ngiklan tapi boncos terus</p>
+<h2>Pas banget...!!!
+Mempersembahkan Online Class untuk Bisa Cuan Jutaan Rupiah dari tiktok Affiliate</h2>
                         
                         
                     </div>

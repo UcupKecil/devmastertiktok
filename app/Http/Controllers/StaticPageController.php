@@ -22,6 +22,10 @@ class StaticPageController extends Controller
         ->orderBy('id', 'desc')
         ->limit(6)
         ->get();
+        $testi_alumnus = DB::table('testi_alumnus')
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
         $benefits = DB::table('benefits')
         ->orderBy('id', 'desc')
         ->limit(6)
@@ -35,6 +39,7 @@ class StaticPageController extends Controller
         $data = [
             'courses'   => $courses,
             'testi_students'   => $testi_students,
+            'testi_alumnus'   => $testi_alumnus,
             'benefits'   => $benefits,
             'qnas'   => $qnas,
             'setting'   => $setting,

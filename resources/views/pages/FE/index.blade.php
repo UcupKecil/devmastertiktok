@@ -4,6 +4,7 @@
 @endpush
 @section('content')
     <!--start category area-->
+    @if (count($testi_alumnus) > 0)
     <section class="category-area">
         <div class="container">
             <div class="row">
@@ -16,66 +17,25 @@
                 <!--end heading-->
             </div>
             <div class="row">
+            @foreach ($testi_alumnus as $testi_alumnu)
                 <!--start category single -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="category-single text-center">
-                        <a href="#"><img src="{{ asset('assets/templates/omexo/assets/images/cat-1.jpg') }}"
+                        <a href="#"><img src="{{ asset('/assets/images/testi_alumnus/' . $testi_alumnu->image) }}"
                                 class="img-fluid" alt="image"></a>
-                        <h4><a href="#">Development</a></h4>
-                        <p>6 Courses</p>
+                        <h4><a href="#">{{$testi_alumnu->name}}</a></h4>
+                        <p>{{$testi_alumnu->pekerjaan}}</p>
                     </div>
                 </div>
                 <!--end category single -->
-                <!--start category single -->
-                <div class="col-md-3">
-                    <div class="category-single text-center">
-                        <div class="course-category-img">
-                            <a href="#"><img src="{{ asset('assets/templates/omexo/assets/images/cat-1.jpg') }}"
-                                    class="img-fluid" alt="image"></a>
-                        </div>
-                        <div class="category-cont text-center">
-                            <h4><a href="#">Business</a></h4>
-                            <p>8 Courses</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end category single -->
-                <!--start category single -->
-                <div class="col-md-3">
-                    <div class="category-single text-center">
-                        <div class="course-category-img">
-                            <a href="#"><img src="{{ asset('assets/templates/omexo/assets/images/cat-1.jpg') }}"
-                                    class="img-fluid" alt="image"></a>
-                        </div>
-                        <div class="category-cont text-center">
-                            <h4><a href="#">Heath & Fitness</a></h4>
-                            <p>6 Courses</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end category single -->
-                <!--start category single -->
-                <div class="col-md-3">
-                    <div class="category-single text-center">
-                        <div class="course-category-img">
-                            <a href="#"><img src="{{ asset('assets/templates/omexo/assets/images/cat-1.jpg') }}"
-                                    class="img-fluid" alt="image"></a>
-                        </div>
-                        <div class="category-cont text-center">
-                            <h4><a href="#">Web Design</a></h4>
-                            <p>7 Courses</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end category single -->
+               
+            @endforeach
+                
             </div>
-            <div class="row">
-                <div class="col-lg-12 btn-default text-center">
-                    <a href="#">all categories</a>
-                </div>
-            </div>
+            
         </div>
     </section>
+    @endif
     <!--end category area-->
        <!--start course area-->
        @if (count($courses) > 0)
@@ -215,12 +175,18 @@
                 
                 <div class="col-md-4">
                     <div class="why-choose-intro">
-                        <h2>Why Choose Us?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat.</p>
-                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                        <div class="why-choose-btn">
-                            <a href="#">Learn More</a>
-                        </div>
+                        <h2>Saya yakin, ini yang sekarang anda alami ;</h2>
+                        <p>1. Gaptek</p>
+<p>2. Belum pernah main tiktok sama sekali</p>
+<p>3. Malu live tiktok karna ga percaya diri</p>
+<p>4. Sudah mulai tapi ga ada hasil</p>
+<p>5. Ga punya waktu karna sambil kerja</p>
+<p>6. Sudah pernah ikut kelas tapi ga ada hasil</p>
+<p>7. Bingung mau mulai dari mana</p>
+<p>8. Mau mulai bisnis tapi ga punya modal</p>
+<p>9. Sering ngiklan tapi boncos terus</p>
+                        
+                        
                     </div>
                 </div>
                 <!--end why choose heading-->
@@ -261,7 +227,7 @@
     <section class="newsletter-area">
         <div class="container">
         <div class="course-curriculum">
-                                        <h3>QNA Tanya Jawab Tentang Kelas:</h3>
+                                        <h3>QnA Pertanyaan yang sering muncul !</h3>
                                         <div id="accordion">
                                         @foreach ($qnas as $qna)
                                             <!--start curriculum single-->

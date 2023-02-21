@@ -28,11 +28,11 @@ class StaticPageController extends Controller
         ->get();
         $benefits = DB::table('benefits')
         ->orderBy('id', 'desc')
-        ->limit(6)
+        ->limit(20)
         ->get();
         $qnas = DB::table('qnas')
         ->orderBy('id', 'desc')
-        ->limit(6)
+        ->limit(20)
         ->get();
         $setting =  Setting::find(1);
             

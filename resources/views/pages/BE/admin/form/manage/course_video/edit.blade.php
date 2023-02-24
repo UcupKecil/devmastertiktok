@@ -5,7 +5,7 @@
     @include('components.styles.CDN.summernote')
 @endpush
 @section('content')
-    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
+    <section class="page-banner-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -53,6 +53,21 @@
                                 onchange="getDuration(event)">
                             <small>*Mohon upload video berekstensi mp4 / mkv</small>
                             @error('video')
+                                <div class="text-danger" style="display: block;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="section_id">Section</label>
+                            <select name="section_id" id="section_id" class="form-control" required>
+                                @foreach ($sections as $section)
+                                    <option value="{{ $section->id }}"
+                                        {{ $section->id == $row->section_id ? 'selected' : null }}>{{ $section->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('section_id')
                                 <div class="text-danger" style="display: block;">
                                     {{ $message }}
                                 </div>

@@ -5,12 +5,12 @@
     @include('components.styles.CDN.summernote')
 @endpush
 @section('content')
-    <section class="page-banner-area">
+    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="banner-content text-center">
-                        <h1>{{ $title }} {{ $course }}</h1>
+                        <h1>{{ $title }}</h1>
                         <p>
                             Manage
                             <span> > </span>
@@ -24,9 +24,8 @@
         </div>
     </section>
     <section class="course-archive">
-        <form action="{{ url('/manage/course/videos/' . $slug) }}" method="post" id="form" autocomplete="false"
+        <form action="{{ url('/manage/course') }}" method="post" id="form" autocomplete="false"
             enctype="multipart/form-data">
-            <input type="hidden" name="seconds" id="seconds">
             @csrf
             <div class="container">
                 <div class="row">
@@ -38,8 +37,8 @@
                         @enderror
                         @include('components.buttons.action.returnButton')
                         <div class="form-group">
-                            <label for="name">Judul Materi</label>
-                            <input type="text" placeholder="Judul Materi" class="form-control" name="name"
+                            <label for="name">Judul Kelas</label>
+                            <input type="text" placeholder="Judul Kelas" class="form-control" name="name"
                                 value="{{ old('name') }}" id="name" autocomplete="false" required>
                             @error('name')
                                 <div class="text-danger" style="display: block;">
@@ -48,29 +47,19 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="section_id">Section</label>
-                            <select name="section_id" id="section_id" class="form-control" required>
-                                <option value="" selected disabled>--- PILIH SECTION ---</option>
-                                @foreach ($sections as $row)
-                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('section_id')
+                            <label for="price">Harga Kelas</label>
+                            <input type="text" placeholder="Harga Kelas" class="form-control" name="price"
+                                value="{{ old('price') }}" id="price" autocomplete="false" required>
+                            @error('price')
                                 <div class="text-danger" style="display: block;">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="video">Video Materi</label>
-                            <input type="file" class="form-control-file" name="video" id="video" required
-                                onchange="getDuration(event)">
-                            <small>*Mohon upload video berekstensi mp4 / mkv</small>
-                            @error('video')
-                                <div class="text-danger" style="display: block;">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <label for="crossed_price">Harga Coret</label>
+                            <input type="text" class="form-control price" name="crossed_price"
+                                value="{{ old('crossed_price') }}" id="crossed_price" autocomplete="false">
                         </div>
                         <div class="form-group">
                             <label for="detail">Keterangan</label>
@@ -82,11 +71,11 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="poster">Poster</label>
-                            <input type="file" class="form-control-file" name="poster" id="poster"
-                                autocomplete="false" data-max-file-size="1M" data-allowed-file-extensions="jpg png jpeg"
-                                required>
-                            @error('poster')
+                            <label for="image">Gambar</label>
+                            <input type="file" placeholder="Harga Kelas" class="form-control-file" name="image"
+                                id="image" autocomplete="false" data-max-file-size="1M"
+                                data-allowed-file-extensions="jpg png jpeg" required>
+                            @error('image')
                                 <div class="text-danger" style="display: block;">
                                     {{ $message }}
                                 </div>

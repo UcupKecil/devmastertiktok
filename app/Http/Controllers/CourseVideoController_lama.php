@@ -14,8 +14,8 @@ class CourseVideoController extends Controller
     // NOTE GET /manage/course/videos/{slug}
     public function index($slug)
     {
+        $setting =  Setting::find(1);
         try {
-            $setting =  Setting::find(1);
             $course = DB::table('courses')->where('slug', $slug)->first();
 
             if (!$course) return abort(404);
@@ -84,6 +84,7 @@ class CourseVideoController extends Controller
                     $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                 } else {
                     $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
+                    //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                 }
 
                 if (file_exists($pleaseRemove)) {
@@ -94,6 +95,7 @@ class CourseVideoController extends Controller
                     $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                 } else {
                     $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video;
+                    //$pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                 }
 
                 if (file_exists($pleaseRemove)) {
@@ -147,12 +149,7 @@ class CourseVideoController extends Controller
 
             $course = DB::table('courses')->where('slug', $slug)->first();
 
-            $data = DB::table('course_videos')
-                ->join('course_sections', 'course_sections.id', '=', 'course_videos.section_id')
-                ->select([
-                    'course_videos.*', 'course_sections.name as section'
-                ])
-                ->where('course_videos.course_id', $course->id);
+            $data = DB::table('course_videos')->where('course_id', $course->id);
 
             return DataTables::of($data)
                 ->addColumn(
@@ -180,24 +177,23 @@ class CourseVideoController extends Controller
         ini_set('max_execution_time', -1);
 
         try {
+            
             $course = DB::table('courses')->where('slug', $slug)->first();
 
             if (!$course) return abort(404);
 
             $rules = [
-                'name'          => 'required',
-                'section_id'    => 'required',
-                'detail'        => 'required',
-                'video'         => 'required',
-                'poster'        => 'required',
+                'name'      => 'required',
+                'detail'    => 'required',
+                'video'     => 'required',
+                'poster'     => 'required',
             ];
 
             $messages = [
-                'name.required'         => 'Nama materi wajib diisi',
-                'section_id.required'   => 'Mohon pilih section kelas',
-                'detail.required'       => 'Keterangan materi wajib diisi',
-                'video.required'        => 'Video materi wajib diisi',
-                'poster.required'       => 'Gambar materi wajib diisi',
+                'name.required'     => 'Nama materi wajib diisi',
+                'detail.required'   => 'Keterangan materi wajib diisi',
+                'video.required'    => 'Video materi wajib diisi',
+                'poster.required'   => 'Gambar materi wajib diisi',
             ];
 
             $validator = Validator::make($request->all(), $rules, $messages);
@@ -225,6 +221,7 @@ class CourseVideoController extends Controller
                     $destination        = base_path('public/assets/images/courses/video/poster/' . $course->id);
                 } else {
                     $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id;
+                    //$destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
                 }
 
                 $request->file('poster')->move($destination, $poster);
@@ -237,6 +234,7 @@ class CourseVideoController extends Controller
                     $destination        = base_path('public/assets/videos/courses/' . $course->id);
                 } else {
                     $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id;
+                    //$destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
                 }
 
                 $request->file('video')->move($destination, $video);
@@ -258,7 +256,6 @@ class CourseVideoController extends Controller
                 DB::table('course_videos')->insert([
                     'course_id'     => $course->id,
                     'created_at'    => date('Y-m-d H:i:s'),
-                    'section_id'    => $request->section_id,
                     'detail'        => $request->detail,
                     'duration'      => $duration,
                     'name'          => $request->name,
@@ -285,7 +282,11 @@ class CourseVideoController extends Controller
                 'success' => 'Materi kelas berhasil ditambahkan'
             ]);
         } catch (Exception $e) {
-            if (env('APP_ENV') == 'local') return dd($e);
+            if (env('APP_ENV') == 'local'){return dd($e);} 
+            else {
+                return dd($e);
+            }
+
 
             return redirect()->back()->withInput()->withErrors(['error' => 'Terjadi kesalahan teknis']);
         }
@@ -340,6 +341,7 @@ class CourseVideoController extends Controller
                         $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                     } else {
                         $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -354,6 +356,7 @@ class CourseVideoController extends Controller
                         $destination        = base_path('public/assets/images/courses/video/poster/' . $course->id);
                     } else {
                         $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id;
+                        //$destination        = getDevelopmentPublicPath() . '/assets/images/courses/video/poster/' . $course->id;
                     }
 
                     $request->file('poster')->move($destination, $poster);
@@ -368,6 +371,7 @@ class CourseVideoController extends Controller
                         $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                     } else {
                         $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video;
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -381,7 +385,9 @@ class CourseVideoController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/videos/courses/' . $course->id);
                     } else {
+                        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-paymentmethod/';
                         $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id;
+                        //$destination        = getDevelopmentPublicPath() . '/assets/videos/courses/' . $course->id;
                     }
 
                     $request->file('video')->move($destination, $video);
@@ -431,7 +437,10 @@ class CourseVideoController extends Controller
                 'success' => 'Materi kelas berhasil diperbaharui'
             ]);
         } catch (Exception $e) {
-            if (env('APP_ENV') == 'local') return dd($e);
+            if (env('APP_ENV') == 'local'){return dd($e);} 
+            else {
+                return dd($e);
+            }
 
             return redirect()->back()->withInput()->withErrors(['error' => 'Terjadi kesalahan teknis']);
         }

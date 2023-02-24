@@ -119,10 +119,6 @@
                     name: 'name'
                 },
                 {
-                    data: 'section',
-                    name: 'course_sections.name'
-                },
-                {
                     data: 'action',
                     orderable: false,
                     searchable: false

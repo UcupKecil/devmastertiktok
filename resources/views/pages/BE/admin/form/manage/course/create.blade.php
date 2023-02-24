@@ -5,7 +5,7 @@
     @include('components.styles.CDN.summernote')
 @endpush
 @section('content')
-    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
+    <section class="page-banner-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -47,8 +47,13 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="subtitle">Subtitle</label>
+                            <input type="text" placeholder="Subtitle Kelas" class="form-control" name="subtitle"
+                                value="{{ old('subtitle') }}" id="subtitle" autocomplete="false">
+                        </div>
+                        <div class="form-group">
                             <label for="price">Harga Kelas</label>
-                            <input type="text" placeholder="Harga Kelas" class="form-control" name="price"
+                            <input type="text" placeholder="Harga Kelas" class="form-control price" name="price"
                                 value="{{ old('price') }}" id="price" autocomplete="false" required>
                             @error('price')
                                 <div class="text-danger" style="display: block;">

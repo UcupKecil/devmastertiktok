@@ -5,7 +5,7 @@
     @include('components.styles.CDN.summernote')
 @endpush
 @section('content')
-    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
+    <section class="page-banner-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -50,6 +50,11 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="subtitle">Subtitle</label>
+                            <input type="text" placeholder="Judul Kelas" class="form-control" name="subtitle"
+                                value="{{ $course->subtitle }}" id="subtitle" autocomplete="false">
+                        </div>
+                        <div class="form-group">
                             <label for="price">Harga Kelas</label>
                             <input type="text" class="form-control price" name="price"
                                 value="{{ number_format($course->price) }}" id="price" autocomplete="false" required>
@@ -62,7 +67,8 @@
                         <div class="form-group">
                             <label for="crossed_price">Harga Coret</label>
                             <input type="text" class="form-control price" name="crossed_price"
-                                value="{{ number_format($course->crossed_price) }}" id="crossed_price" autocomplete="false">
+                                value="{{ number_format($course->crossed_price) }}" id="crossed_price"
+                                autocomplete="false">
                         </div>
                         <div class="form-group">
                             <label for="detail">Keterangan</label>

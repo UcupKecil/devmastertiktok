@@ -206,8 +206,10 @@ class FormController extends Controller
         try {
             $course = DB::table('courses')->where('slug', $slug)->first();
             $setting =  Setting::find(1);
+           
 
             if (!$course) return abort(404);
+            $sections = DB::table('course_sections')->where('course_id', $course->id)->orderBy('order', 'asc')->get();
 
             $js = 'components.scripts.BE.admin.form.manage.course_video.create';
 
@@ -217,6 +219,7 @@ class FormController extends Controller
                 'js'        => $js,
                 'slug'      => $slug,
                 'setting'    => $setting,
+                'sections'  => $sections,
                 'title'     => 'Tambah Materi Kelas',
             ];
 
@@ -237,6 +240,7 @@ class FormController extends Controller
             if (!$row) return abort(404);
 
             $course = DB::table('courses')->where('id', $row->course_id)->first();
+            $sections = DB::table('course_sections')->where('course_id', $course->id)->orderBy('order', 'asc')->get();
 
             $js = 'components.scripts.BE.admin.form.manage.course_video.create';
 
@@ -247,6 +251,7 @@ class FormController extends Controller
                 'js'        => $js,
                 'row'       => $row,
                 'slug'      => $course->slug,
+                'sections'  => $sections,
                 'setting'    => $setting,
                 'title'     => 'Edit Materi Kelas',
             ];

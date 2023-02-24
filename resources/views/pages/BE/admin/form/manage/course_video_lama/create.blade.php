@@ -5,7 +5,7 @@
     @include('components.styles.CDN.summernote')
 @endpush
 @section('content')
-    <section class="page-banner-area">
+    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -42,20 +42,6 @@
                             <input type="text" placeholder="Judul Materi" class="form-control" name="name"
                                 value="{{ old('name') }}" id="name" autocomplete="false" required>
                             @error('name')
-                                <div class="text-danger" style="display: block;">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="section_id">Section</label>
-                            <select name="section_id" id="section_id" class="form-control" required>
-                                <option value="" selected disabled>--- PILIH SECTION ---</option>
-                                @foreach ($sections as $row)
-                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('section_id')
                                 <div class="text-danger" style="display: block;">
                                     {{ $message }}
                                 </div>

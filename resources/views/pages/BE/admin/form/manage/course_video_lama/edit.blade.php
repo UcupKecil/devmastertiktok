@@ -5,7 +5,7 @@
     @include('components.styles.CDN.summernote')
 @endpush
 @section('content')
-    <section class="page-banner-area">
+    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -24,9 +24,9 @@
         </div>
     </section>
     <section class="course-archive">
-        <form action="{{ url('/manage/course/videos/' . $slug) }}" method="post" id="form" autocomplete="false"
-            enctype="multipart/form-data">
-            <input type="hidden" name="seconds" id="seconds">
+        <form action="{{ url('/manage/course/videos/' . $slug . '/' . $id) }}" method="post" id="form"
+            autocomplete="false" enctype="multipart/form-data">
+            <input type="hidden" name="seconds" id="seconds" value="{{ $row->seconds }}">
             @csrf
             <div class="container">
                 <div class="row">
@@ -40,22 +40,8 @@
                         <div class="form-group">
                             <label for="name">Judul Materi</label>
                             <input type="text" placeholder="Judul Materi" class="form-control" name="name"
-                                value="{{ old('name') }}" id="name" autocomplete="false" required>
+                                value="{{ $row->name }}" id="name" autocomplete="false" required>
                             @error('name')
-                                <div class="text-danger" style="display: block;">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="section_id">Section</label>
-                            <select name="section_id" id="section_id" class="form-control" required>
-                                <option value="" selected disabled>--- PILIH SECTION ---</option>
-                                @foreach ($sections as $row)
-                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('section_id')
                                 <div class="text-danger" style="display: block;">
                                     {{ $message }}
                                 </div>
@@ -74,7 +60,9 @@
                         </div>
                         <div class="form-group">
                             <label for="detail">Keterangan</label>
-                            <textarea name="detail" id="detail" class="form-control" required></textarea>
+                            <textarea name="detail" id="detail" class="form-control" required>
+                                {{ $row->detail }}
+                            </textarea>
                             @error('detail')
                                 <div class="text-danger" style="display: block;">
                                     {{ $message }}
@@ -85,6 +73,7 @@
                             <label for="poster">Poster</label>
                             <input type="file" class="form-control-file" name="poster" id="poster"
                                 autocomplete="false" data-max-file-size="1M" data-allowed-file-extensions="jpg png jpeg"
+                                data-default-file="{{ asset('/assets/images/courses/video/poster/' . $row->course_id . '/' . $row->poster) }}"
                                 required>
                             @error('poster')
                                 <div class="text-danger" style="display: block;">

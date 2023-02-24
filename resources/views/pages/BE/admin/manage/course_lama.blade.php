@@ -5,7 +5,7 @@
     @include('components.styles.CDN.lightbox2')
 @endpush
 @section('content')
-    <section class="page-banner-area">
+    <section class="page-banner-area" style="background-image: url({{ asset('/assets/images/settings/' . $setting->imagebanner) }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -45,7 +45,7 @@
                             <th width="5%">#</th>
                             <th>name</th>
                             <th width="10%">cover</th>
-                            <th width="10%">action</th>
+                            <th width="5%">action</th>
                         </thead>
                         <tbody></tbody>
                     </table>

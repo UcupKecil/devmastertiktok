@@ -49,10 +49,10 @@ class StaticPageController extends Controller
         return view('pages.FE.index', $data);
     }
     // NOTE GET /mycourse/{slug}
+    // NOTE GET /mycourse/{slug}
     public function classroom($slug)
     {
         $course = DB::table('courses')->where('slug', $slug)->first();
-        $setting =  Setting::find(1);
 
         if (!$course) return abort(404);
 
@@ -64,6 +64,14 @@ class StaticPageController extends Controller
         if (!$valid) return abort(403);
 
         $videos = DB::table('course_videos')->where('course_id', $course->id)->orderBy('id')->get();
+
+        $sectionIds = [];
+
+        foreach ($videos as $video) {
+            $sectionIds[] = $video->section_id;
+        }
+
+        $sections = DB::table('course_sections')->whereIn('id', $sectionIds)->orderBy('order', 'asc')->get();
 
         if (!$valid->last_video) {
             DB::table('course_students')->where('id', $valid->id)->update([
@@ -82,10 +90,9 @@ class StaticPageController extends Controller
             'course'    => $course,
             'js'        => 'components.scripts.BE.member.course',
             'onDisplay' => $onDisplay,
+            'sections'  => $sections,
             'title'     => $course->name,
             'valid'     => $valid,
-            'videos'    => $videos,
-            'setting'   => $setting,
         ];
 
         return view('pages.BE.member.course', $data);

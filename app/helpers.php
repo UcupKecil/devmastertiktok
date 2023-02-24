@@ -3,6 +3,21 @@
 
 use Illuminate\Support\Facades\DB;
 
+// NOTE video class aktif atau bukan
+function isVideoOnDisplay($id, $section_id, $course_id)
+{
+    $data = false;
+
+    $query = DB::table('course_videos')
+        ->where('id', $id)
+        ->where('course_id', $course_id)
+        ->where('section_id', $section_id)
+        ->first();
+
+    if ($query) $data = true;
+
+    return $data;
+}
 // NOTE generate random phone number
 function generatePhoneNumber()
 {
@@ -60,6 +75,14 @@ function getDurationString($int)
 function getProductionPublicPath()
 {
     return '/home/stbwebid/public_html/survey';
+}
+// NOTE video list by section
+function getVideoList($id, $course_id)
+{
+    return DB::table('course_videos')
+        ->where('course_id', $course_id)
+        ->where('section_id', $id)
+        ->get();
 }
 // NOTE routing
 function includeRouteFiles($folder)

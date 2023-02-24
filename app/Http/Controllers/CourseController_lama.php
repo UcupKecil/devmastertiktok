@@ -56,6 +56,7 @@ class CourseController extends Controller
                         $pleaseRemove = base_path('public/assets/images/courses/' . $course->image);
                     } else {
                         $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/' . $course->image;
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/' . $course->image;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -161,6 +162,7 @@ class CourseController extends Controller
                     $destination        = base_path('public/assets/images/courses');
                 } else {
                     $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses';
+                    //$destination        = getDevelopmentPublicPath() . '/assets/images/courses';
                 }
 
                 $request->file('image')->move($destination, $image);
@@ -172,8 +174,7 @@ class CourseController extends Controller
                     'image'         => $image,
                     'name'          => $request->name,
                     'price'         => str_replace(',', '', $request->price),
-                    'slug'          => Str::slug($request->name),
-                    'subtitle'      => $request->has('subtitle') ? $request->subtitle : null,
+                    'slug'          => Str::slug($request->name)
                 ]);
             });
 
@@ -181,7 +182,10 @@ class CourseController extends Controller
                 'success' => 'Kelas berhasil ditambahkan'
             ]);
         } catch (Exception $e) {
-            if (env('APP_ENV') == 'local') return dd($e);
+            if (env('APP_ENV') == 'local') {return dd($e);} 
+            else {
+                return dd($e);
+            }
 
             return redirect()->back()->withInput()->withErrors(['error' => 'Terjadi kesalahan teknis']);
         }
@@ -219,6 +223,7 @@ class CourseController extends Controller
                         $pleaseRemove = base_path('public/assets/images/courses/' . $course->image);
                     } else {
                         $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/' . $course->image;
+                        //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/courses/' . $course->image;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -233,6 +238,7 @@ class CourseController extends Controller
                         $destination        = base_path('public/assets/images/courses');
                     } else {
                         $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses';
+                        //$destination        = getDevelopmentPublicPath() . '/assets/images/courses';
                     }
 
                     $request->file('image')->move($destination, $image);
@@ -244,8 +250,7 @@ class CourseController extends Controller
                         'name'          => $request->name,
                         'price'         => str_replace(',', '', $request->price),
                         'crossed_price' => $request->crossed_price ? str_replace(',', '', $request->crossed_price) : 0,
-                        'slug'          => Str::slug($request->name),
-                        'subtitle'      => $request->has('subtitle') ? $request->subtitle : null,
+                        'slug'          => Str::slug($request->name)
                     ]);
                 } else {
                     DB::table('courses')->where('id', $id)->update([
@@ -254,8 +259,7 @@ class CourseController extends Controller
                         'name'          => $request->name,
                         'price'         => str_replace(',', '', $request->price),
                         'crossed_price' => $request->crossed_price ? str_replace(',', '', $request->crossed_price) : 0,
-                        'slug'          => Str::slug($request->name),
-                        'subtitle'      => $request->has('subtitle') ? $request->subtitle : null,
+                        'slug'          => Str::slug($request->name)
                     ]);
                 }
             });
@@ -264,7 +268,10 @@ class CourseController extends Controller
                 'success' => 'Kelas berhasil diperbaharui'
             ]);
         } catch (Exception $e) {
-            if (env('APP_ENV') == 'local') return dd($e);
+            if (env('APP_ENV') == 'local') {return dd($e);}
+            else {
+                return dd($e);
+            }
 
             return redirect()->back()->withInput()->withErrors(['error' => 'Terjadi kesalahan teknis']);
         }

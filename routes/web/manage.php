@@ -5,6 +5,7 @@ use App\Http\Controllers\QnaController;
 use App\Http\Controllers\TestiStudentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseVideoController;
+use App\Http\Controllers\CourseSectionController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -12,6 +13,8 @@ Route::group([
     'prefix'        => 'manage'
 ], function () {
     Route::get('/course', [CourseController::class, 'index']);
+    Route::get('/course/sections/{slug}', [CourseSectionController::class, 'index']);
+    Route::get('/course/sections/{slug}/{any}', [CourseSectionController::class, 'show']);
     Route::get('/setting', [SettingController::class, 'index']);
     Route::get('/benefit', [BenefitController::class, 'index']);
     Route::get('/qna', [QnaController::class, 'index']);
@@ -30,11 +33,14 @@ Route::group([
     Route::post('/testi_student', [TestiStudentController::class, 'store']);
     Route::post('/course/videos/{slug}/{id}', [CourseVideoController::class, 'update']);
     Route::post('/course/{id}', [CourseController::class, 'update']);
+    Route::post('/course/sections/{slug}', [CourseSectionController::class, 'store']);
+    Route::post('/course/sections/{slug}/{id}', [CourseSectionController::class, 'update']);
     Route::post('/setting/{id}', [SettingController::class, 'update']);
     Route::post('/benefit/{id}', [BenefitController::class, 'update']);
     Route::post('/qna/{id}', [QnaController::class, 'update']);
     Route::post('/testi_student/{id}', [TestiStudentController::class, 'update']);
     Route::delete('/course/videos/{slug}/{id}', [CourseVideoController::class, 'destroy']);
+    Route::delete('/course/sections/{slug}/{id}', [CourseSectionController::class, 'destroy']);
     Route::delete('/course/{id}', [CourseController::class, 'destroy']);
     Route::delete('/setting/{id}', [SettingController::class, 'destroy']);
     Route::delete('/benefit/{id}', [BenefitController::class, 'destroy']);

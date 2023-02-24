@@ -21,7 +21,7 @@
     <section class="course-archive">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-8 border">
+                <div class="col-12 border">
                     <div id="video">
                         <video width="1000" height="400" controls
                             poster="{{ asset('/assets/images/courses/video/poster/' . $course->id . '/' . $onDisplay->poster) }}">
@@ -31,7 +31,7 @@
                         {!! $onDisplay->detail !!}
                     </div>
                 </div>
-                <div class="col-4 border">
+                <div class="col-12 border">
                     <div id="accordion">
                         <div class="card border">
                             {{-- <div class="card-header two active">

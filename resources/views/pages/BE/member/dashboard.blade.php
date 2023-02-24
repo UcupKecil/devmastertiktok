@@ -110,6 +110,33 @@
                 </div>
             </div>
         </div>
+         @if ($referralHistory)
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Histori Referral</h4>
+                        <table id="table" class="table table-striped table-hover w-100 display nowrap">
+                            <thead>
+                                <th width="5%">#</th>
+                                <th>Tanggal</th>
+                                <th>Nama</th>
+                                <th>Point</th>
+                            </thead>
+                            <tbody>
+                                @for ($i = 0; $i < count($referralHistory); $i++)
+                                    <td>{{ $i + 1 }}</td>
+                                    <td>{{ date('d-m-Y H:i:s', strtotime($referralHistory[$i]['date'])) }}</td>
+                                    <td>
+                                        {{ $referralHistory[$i]['name'] }}
+                                    </td>
+                                    <td>{{ number_format($referralHistory[$i]['point']) }}</td>
+                                @endfor
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        @endif
     </section>
 @endsection
 @push('script')

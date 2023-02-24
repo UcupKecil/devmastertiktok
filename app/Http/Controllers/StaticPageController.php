@@ -52,6 +52,7 @@ class StaticPageController extends Controller
     // NOTE GET /mycourse/{slug}
     public function classroom($slug)
     {
+        $setting =  Setting::find(1);
         $course = DB::table('courses')->where('slug', $slug)->first();
 
         if (!$course) return abort(404);
@@ -88,6 +89,7 @@ class StaticPageController extends Controller
 
         $data = [
             'course'    => $course,
+            'setting'   => $setting,
             'js'        => 'components.scripts.BE.member.course',
             'onDisplay' => $onDisplay,
             'sections'  => $sections,
@@ -133,7 +135,8 @@ class StaticPageController extends Controller
             ->where('orders.user_id', auth()->user()->id)
             ->get();
 
-        $courses = null;
+        $courses            = null;
+        $referralHistory    = null;
 
         if (Auth::user()->getRoleNames()[0] == 'Member') {
             $courses = DB::table('course_students')
@@ -144,6 +147,42 @@ class StaticPageController extends Controller
                 ->where('course_students.user_id', auth()->user()->id)
                 ->orderBy('course_students.id', 'desc')
                 ->get();
+
+            $query = DB::table('orders')
+                ->where('referred_by', Auth::user()->id)
+                ->where('status', 'paid')
+                ->get();
+
+            if ($query) {
+                $referralHistory = [];
+
+                $i = 1;
+
+                foreach ($query as $row) {
+                    $name = DB::table('users')
+                        ->where('id', $row->user_id)
+                        ->first()
+                        ->name;
+
+                    $point = DB::table('point_transactions')
+                        ->whereNotNull('credit')
+                        ->limit($i)
+                        ->orderBy('id', 'desc')
+                        ->first();
+
+                    $referralHistory[] = [
+                        'name'  => $name,
+                        'point' => $point->credit,
+                        'date'  => $point->created_at,
+                    ];
+
+                    $i++;
+                }
+
+                usort($referralHistory, function ($item1, $item2) {
+                    return $item2['date'] <=> $item1['date'];
+                });
+            }
         }
 
         $user = DB::table('user_details')->where('user_id', Auth::user()->id)->first();
@@ -151,12 +190,13 @@ class StaticPageController extends Controller
         $js = 'components.scripts.BE.' . strtolower(Auth::user()->getRoleNames()[0]) . '.dashboard';
 
         $data = [
-            'courses'       => $courses,
-            'js'            => $js,
-            'title'         => 'Dashboard',
-            'unpaidOrder'   => $unpaidOrder,
-            'user'          => $user,
-            'setting'    => $setting,
+            'courses'           => $courses,
+            'js'                => $js,
+            'referralHistory'   => $referralHistory,
+            'setting'           => $setting,
+            'title'             => 'Dashboard',
+            'unpaidOrder'       => $unpaidOrder,
+            'user'              => $user,
         ];
 
         return view('pages.BE.' . strtolower(Auth::user()->getRoleNames()[0]) . '.dashboard', $data);

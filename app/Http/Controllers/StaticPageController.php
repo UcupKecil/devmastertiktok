@@ -137,6 +137,7 @@ class StaticPageController extends Controller
 
         $courses            = null;
         $referralHistory    = null;
+        $adminOrders        = null;
 
         if (Auth::user()->getRoleNames()[0] == 'Member') {
             $courses = DB::table('course_students')

@@ -184,12 +184,22 @@ class StaticPageController extends Controller
                 });
             }
         }
+        else {
+            $adminOrders = DB::table('orders')
+                ->join('users', 'users.id', '=', 'orders.user_id')
+                ->select([
+                    'orders.*', 'users.name'
+                ])
+                ->orderBy('orders.created_at', 'desc')
+                ->get();
+        }
 
         $user = DB::table('user_details')->where('user_id', Auth::user()->id)->first();
 
         $js = 'components.scripts.BE.' . strtolower(Auth::user()->getRoleNames()[0]) . '.dashboard';
 
         $data = [
+            'adminOrders'       => $adminOrders,
             'courses'           => $courses,
             'js'                => $js,
             'referralHistory'   => $referralHistory,

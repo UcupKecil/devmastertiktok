@@ -1,4 +1,7 @@
 @extends('layouts.FE.page')
+@push('style')
+    @include('components.styles.CDN.dataTables')
+@endpush
 @section('content')
     <section class="page-banner-area">
         <div class="container">
@@ -29,19 +32,19 @@
                             <th>Total</th>
                             <th>Status</th>
                         </thead>
-                        @foreach ($adminOrders as $row)
                         <tbody>
-                            
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
-                                <td>{{ $row->name }}</td>
-                                <td>Rp. {{ number_format($row->sub_total) }}</td>
-                                <td>Rp. {{ number_format($row->biaya_adm) }}</td>
-                                <td>Rp. {{ number_format($row->total) }}</td>
-                                <td>{{ $row->status }}</td>
-                            
+                            @foreach ($adminOrders as $row)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
+                                    <td>{{ $row->name }}</td>
+                                    <td>Rp. {{ number_format($row->sub_total) }}</td>
+                                    <td>Rp. {{ number_format($row->biaya_adm) }}</td>
+                                    <td>Rp. {{ number_format($row->total) }}</td>
+                                    <td>{{ $row->status }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>
@@ -51,5 +54,6 @@
     </section>
 @endsection
 @push('script')
+    @include('components.scripts.CDN.dataTables')
     @include($js)
 @endpush

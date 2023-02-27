@@ -6,15 +6,18 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
+use App\Models\Setting;
 
 class ReferralController extends Controller
 {
     // NOTE GET /manage/refferal
     public function index()
     {
+        $setting =  Setting::find(1);
         $data = [
             'js'        => 'components.scripts.BE.admin.manage.referral',
             'title'     => 'referral',
+            'setting'    => $setting,
         ];
 
         return view('pages.BE.admin.manage.referral', $data);

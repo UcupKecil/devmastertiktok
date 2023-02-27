@@ -241,4 +241,20 @@ class StaticPageController extends Controller
 
         return view('pages.FE.auth.register', $data);
     }
+
+    // NOTE GET /auth/reset
+    public function reset()
+    {
+        
+        $setting =  Setting::find(1);
+        
+
+        $data = [
+            'title'     => 'Register',
+            'setting'    => $setting,
+            'js'        => 'components.scripts.FE.auth.reset'
+        ];
+
+        return view('pages.FE.auth.passwords.reset', $data);
+    }
 }

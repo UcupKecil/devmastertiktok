@@ -10,6 +10,7 @@ Route::group([
 ], function () {
     Route::get('/login', [StaticPageController::class, 'login']);
     Route::get('/register', [StaticPageController::class, 'register']);
+    
     Route::get('/register/{slug}', [AuthController::class, 'setCourse']);
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);

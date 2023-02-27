@@ -22,5 +22,11 @@
                 Course
             </a>
         </li>
+        <li>
+            <a href="{{ url('/manage/refferal') }}"
+                class="{{ $segment1 == 'manage' && $segment2 == 'refferal' ? ' active' : '' }}">
+                Refferal
+            </a>
+        </li>
     </ul>
 </li>

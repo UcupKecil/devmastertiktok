@@ -16,10 +16,11 @@ class TripayController extends Controller
             $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
         } else {
 
-            $url    = 'https://tripay.co.id/api-sandbox/merchant/payment-channel?code=' . $payment;
-            $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
-            // $url    = 'https://tripay.co.id/api/merchant/payment-channel?code=' . $code;
-            // $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
+            // $url    = 'https://tripay.co.id/api-sandbox/merchant/payment-channel?code=' . $payment;
+            // $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
+            
+            $url    = 'https://tripay.co.id/api/merchant/payment-channel?code=' . $code;
+            $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
         }
 
         $client = new Client();

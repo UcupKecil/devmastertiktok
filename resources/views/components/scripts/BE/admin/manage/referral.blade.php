@@ -64,6 +64,7 @@
                     data: 'point',
                     name: 'user_details.point'
                 },
+                
                 {
                     data: 'action',
                     orderable: false,
@@ -103,7 +104,8 @@
         $('#submitTransfer').click(function(e) {
             e.preventDefault();
 
-            var formData = $('#transferForm').serialize();
+            //var formData = $('#transferForm').serialize();
+            var formData = new FormData($("#transferForm")[0]);
 
             Swal.fire({
                 title: 'Please Wait!',
@@ -121,6 +123,7 @@
                 dataType: "json",
                 cache: false,
                 processData: false,
+                contentType: false,
                 success: function(data) {
                     swal.close();
 
@@ -148,3 +151,4 @@
         });
     });
 </script>
+

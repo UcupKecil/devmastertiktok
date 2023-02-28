@@ -18,6 +18,17 @@
                         <input type="text" id="point" class="form-control" readonly>
                     </div>
                     <div class="form-group">
+                            <label for="image">Gambar</label>
+                            <input type="file" placeholder="Harga Kelas" class="form-control-file" name="image"
+                                id="image" autocomplete="false" data-max-file-size="5M"
+                                data-allowed-file-extensions="jpg png jpeg" >
+                            @error('image')
+                                <div class="text-danger" style="display: block;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="debit">Jumlah terkirim</label>
                         <input type="text" id="debit" class="form-control price" name="debit"
                             autocomplete="off">

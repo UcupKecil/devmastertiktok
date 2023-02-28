@@ -14,6 +14,7 @@ class ReferralController extends Controller
     public function index()
     {
         $setting =  Setting::find(1);
+       
         $data = [
             'js'        => 'components.scripts.BE.admin.manage.referral',
             'title'     => 'referral',
@@ -54,6 +55,7 @@ class ReferralController extends Controller
                         return number_format($row->point);
                     }
                 )
+                
                 ->addColumn(
                     'action',
                     function ($row) {
@@ -76,6 +78,10 @@ class ReferralController extends Controller
     // NOTE GET /manage/refferal/{id}
     public function transfer(Request $request, $id)
     {
+       
+
+       
+
         try {
             $user = DB::table('users')
                 ->join('user_details', 'user_details.user_id', '=', 'users.id')
@@ -90,7 +96,12 @@ class ReferralController extends Controller
                     'msg'       => 'User tidak ditemukan',
                     'status'    => false
                 ];
-            } elseif (!$request->debit) {
+            }elseif (!$request->image) {
+                $json   = [
+                    'msg'       => 'Mohon masukan bukti transfer',
+                    'status'    => false
+                ];
+            }  elseif (!$request->debit) {
                 $json   = [
                     'msg'       => 'Mohon masukan nominal transfer',
                     'status'    => false
@@ -104,11 +115,24 @@ class ReferralController extends Controller
                         'status'    => false
                     ];
                 } else {
-                    DB::transaction(function () use ($debit, $id) {
+                    $extension = $request->file('image')->getClientOriginalExtension();
+                    //dd($extension);
+                    $image  = date('YmdHis') . '' . str_replace(' ', '', $debit) . '.' . $extension;
+                    if (env('APP_ENV') == 'local') {
+                        $destination        = base_path('public/assets/images/referral');
+                    } else {
+                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/referral';
+                    }
+                    $request->file('image')->move($destination, $image);
+                    DB::transaction(function () use ($debit, $id,$image) {
+
+                        
+
                         DB::table('point_transactions')->insert([
                             'created_at'    => date('Y-m-d H:i:s'),
                             'debit'         => $debit,
-                            'user_id'       => $id
+                            'user_id'       => $id,
+                            'image'         => $image,
                         ]);
 
                         $credit = DB::table('point_transactions')->where('user_id', $id)->sum('credit');

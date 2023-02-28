@@ -28,6 +28,8 @@
                             <th width="5%">#</th>
                             <th>name</th>
                             <th>point</th>
+                           
+                            
                             <th width="5%">action</th>
                         </thead>
                         <tbody></tbody>
@@ -38,10 +40,13 @@
         @include('components.modals.BE.manage.referral.transfer')
     </section>
 @endsection
+
+
 @push('script')
     @include('components.scripts.CDN.dataTables')
     @include('components.scripts.CDN.font-awesome')
     @include('components.scripts.CDN.lightbox2')
     @include('components.scripts.CDN.sweetalert2')
     @include($js)
+    
 @endpush

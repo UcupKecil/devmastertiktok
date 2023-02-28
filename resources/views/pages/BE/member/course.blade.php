@@ -14,20 +14,14 @@
     </section>
     
     
-    <section class="course-archive">
-        <div class="container" style="position: relative;
-            padding-top: 10px;
-            padding-bottom: 0%;">
-            <div class="row" style="    padding: 20px;
-                width: 100%;
-                height: 100%;
-                max-width: 400px;
-                max-height: 400px;
-                margin: 0 auto;">
+    
+    <section class="video-area">
+        <div class="container">
+         
                  
 
 <div id="video" >
-                        <video poster="{{ asset('/assets/images/courses/video/poster/' . $course->id . '/' . $onDisplay->poster) }}" width="400" height="400" controls
+                        <video  width="400" height="400" controls
                             >
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}"
                            >
@@ -36,7 +30,7 @@
                         {!! $onDisplay->detail !!}
 </div>
 
-</div>
+
 </div>
 
                    

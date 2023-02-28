@@ -27,7 +27,7 @@
                 margin: 0 auto;">
 
 <div id="video">
-                        <video  width="450" height="450" controls
+                        <video  width="400" height="400" controls
                             poster="{{ asset('/assets/images/courses/video/poster/' . $course->id . '/' . $onDisplay->poster) }}">
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}"
                            >

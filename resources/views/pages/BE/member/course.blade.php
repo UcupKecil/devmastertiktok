@@ -1,17 +1,6 @@
 @extends('layouts.FE.page')
 @section('content')
-    <section >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="banner-content text-center">
-                        <h1>KELAS</h1>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     
     
     

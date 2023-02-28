@@ -4,8 +4,12 @@
     
     
     
-    <section class="video-area text-center">
+    <section class="video-area text-center col-lg-10 offset-lg-1">
         <h1> KELAS </h1>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="container " style="max-width: 720px;" id="video">
           
                         <video  class="container" style="max-width: 720px;" controls

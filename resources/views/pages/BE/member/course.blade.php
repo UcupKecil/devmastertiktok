@@ -28,7 +28,7 @@
 
 <div id="video">
                         <video style=" background-position: center;
-  background-size: cover;" poster="{{ asset('/assets/images/courses/video/poster/' . $course->id . '/' . $onDisplay->poster) }}" width="400" height="400" controls
+  background-size: cover;object-fit: cover;" poster="{{ asset('/assets/images/courses/video/poster/' . $course->id . '/' . $onDisplay->poster) }}" width="400" height="400" controls
                             >
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}"
                            >

@@ -22,8 +22,8 @@
                 <div class="col-12 border" style="    padding: 20px;
                 width: 100%;
                 height: 100%;
-                max-width: 500px;
-                max-height: 500px;
+                max-width: 450px;
+                max-height: 450px;
                 margin: 0 auto;">
 
 <div id="video">

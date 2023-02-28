@@ -33,33 +33,18 @@
                                     </a>
                                 </div>
                                 <div class="course-content">
-                                    @if ($course->crossed_price > $course->price)
-                                        <span class="course-price">
-                                            <del>Rp. {{ number_format($course->crossed_price) }}</del>
-                                        </span>
-                                        <br>
-                                    @endif
-                                    <span class="course-price">Rp. {{ number_format($course->price) }}</span>
+                                   
+                                  
                                     <h3 class="course-title">
                                         <a href="{{ url('/mycourse/' . $course->slug) }}">{{ $course->name }}</a>
                                     </h3>
-                                    {{-- <div class="course-rating">
-                                <span class="star-rating-group">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                </span>
-                                <span class="course-rating-count">(2 Review)</span>
-                            </div> --}}
+                                    
                                     <div class="course-content-footer">
                                         <ul>
-                                            <li class="course-duration">
-                                                <i class="fa fa-clock-o"></i>
-                                                {{ getDurationString($course->duration) }}
-                                            </li>
-                                            {{-- <li class="course-user"><i class="fa fa-user-o"></i> 3</li> --}}
+                                        <div class="category-btn btn-default text-center">
+                                                <a href="{{ url('/mycourse/' . $course->slug) }}">Masuk Kelas</a>
+                                        </div>
+                                           
                                         </ul>
                                     </div>
                                 </div>

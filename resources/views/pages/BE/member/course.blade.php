@@ -15,23 +15,21 @@
     
     
     
-    <section class="video-area">
-        <div class="container">
-         
-                 
-
-<div id="video" >
-                        <video  width="400" height="400" controls
+    <section class="video-area text-center">
+        <h1> KELAS </h1>
+        <div class="container " style="max-width: 720px;" id="video">
+          
+                        <video  class="container" style="max-width: 720px;" controls
                             >
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}"
                            >
                         </video>
                         <hr>
                         {!! $onDisplay->detail !!}
-</div>
+        
 
 
-</div>
+        </div>
 
                    
                 

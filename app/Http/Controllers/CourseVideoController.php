@@ -324,7 +324,7 @@ class CourseVideoController extends Controller
 
             if ($request->file('video')) {
                 $validExtension = [
-                    'mp4', 'mkv', '3gp'
+                    'mp4', 'mkv', '3gp','mov'
                 ];
 
                 $extension  = $request->file('video')->getClientOriginalExtension();

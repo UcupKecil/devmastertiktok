@@ -5,6 +5,10 @@
             @include('components.icons.exchange')
         </button>
     @else
-        <p>-</p>
+    <a href="{{ url('/manage/referral/detail/' . $id) }}" class="btn btn-secondary" data-toggle="tooltip"
+        data-placement="top" title="List Section">
+        @include('components.icons.list')
+    </a>
+   <p>--</p>
     @endif
 </div>

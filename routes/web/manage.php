@@ -6,6 +6,7 @@ use App\Http\Controllers\TestiStudentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseVideoController;
 use App\Http\Controllers\CourseSectionController;
+use App\Http\Controllers\ReferralDetailController;
 use App\Http\Controllers\ReferralController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,8 @@ Route::group([
     Route::get('/course', [CourseController::class, 'index']);
     Route::get('/course/sections/{slug}', [CourseSectionController::class, 'index']);
     Route::get('/course/sections/{slug}/{any}', [CourseSectionController::class, 'show']);
+    Route::get('/referral/detail/{id}', [ReferralDetailController::class, 'index']);
+    Route::get('/referral/detail/{id}/{any}', [ReferralDetailController::class, 'show']);
     Route::get('/setting', [SettingController::class, 'index']);
     Route::get('/benefit', [BenefitController::class, 'index']);
     Route::get('/qna', [QnaController::class, 'index']);

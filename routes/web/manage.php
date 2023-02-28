@@ -8,6 +8,7 @@ use App\Http\Controllers\CourseVideoController;
 use App\Http\Controllers\CourseSectionController;
 use App\Http\Controllers\ReferralDetailController;
 use App\Http\Controllers\ReferralController;
+use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -25,6 +26,9 @@ Route::group([
     Route::get('/refferal', [ReferralController::class, 'index']);
     Route::get('/refferal/{any}', [ReferralController::class, 'show']);
     Route::post('/refferal/{id}', [ReferralController::class, 'transfer']);
+    Route::get('/history', [HistoryController::class, 'index']);
+    Route::get('/history/{any}', [HistoryController::class, 'show']);
+    Route::post('/history/{id}', [HistoryController::class, 'transfer']);
     Route::get('/testi_student', [TestiStudentController::class, 'index']);
     Route::get('/course/videos/{slug}', [CourseVideoController::class, 'index']);
     Route::get('/course/videos/{slug}/{any}', [CourseVideoController::class, 'show']);

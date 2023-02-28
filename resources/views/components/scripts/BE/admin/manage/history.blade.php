@@ -13,7 +13,7 @@
 
         $.ajax({
             type: "get",
-            url: `/manage/refferal/${id}`,
+            url: `/manage/history/${id}`,
             dataType: "json",
             success: function(data) {
                 thisId = id;
@@ -48,7 +48,7 @@
             responsive: true,
             serverSide: true,
             ajax: {
-                url: '/manage/refferal/table'
+                url: '/manage/history/table'
             },
             buttons: [],
             "columns": [{
@@ -57,12 +57,28 @@
                     searchable: false
                 },
                 {
+                    data: 'waktu',
+                    name: 'orders.created_at'
+                },
+                {
                     data: 'name',
                     name: 'name'
                 },
                 {
-                    data: 'point',
-                    name: 'user_details.point'
+                    data: 'sub_total',
+                    name: 'orders.sub_total'
+                },
+                {
+                    data: 'biaya_adm',
+                    name: 'orders.biaya_adm'
+                },
+                {
+                    data: 'total',
+                    name: 'orders.total'
+                },
+                {
+                    data: 'status',
+                    name: 'orders.status'
                 },
                 
                 {
@@ -118,7 +134,7 @@
 
             $.ajax({
                 type: "post",
-                url: `/manage/refferal/${thisId}`,
+                url: `/manage/history/${thisId}`,
                 data: formData,
                 dataType: "json",
                 cache: false,

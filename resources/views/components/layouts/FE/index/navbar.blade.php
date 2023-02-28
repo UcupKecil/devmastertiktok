@@ -21,16 +21,7 @@
                     </ul>
                 </div>
                 <!--end header contact info-->
-                <!--start header-top-social-->
-                <div class="header-top-social text-right">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-                <!--end header-top-social-->
+                
             </div>
         </div>
     </div>
@@ -51,13 +42,7 @@
                             <li>
                                 <a class="{{ $segment1 == '' ? ' active' : '' }}" href="{{ url('/') }}">Home</a>
                             </li>
-                            <li>
-                                <a href="#">Courses</a>
-                            </li>
-                            <li>
-                                <a href="#">Blog</a>
-                            </li>
-                            <li><a href="#">Contact</a></li>
+                            
                             @auth
                                 <li><small>|</small></li>
                                 <li>

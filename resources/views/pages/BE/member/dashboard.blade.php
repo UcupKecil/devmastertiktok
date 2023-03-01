@@ -144,14 +144,18 @@
 
                     <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body current">
+                        <span class="copied" style="color:red;">Link Referral Berhasil disalin !</span>
                         <div class="input-group">
    
    <span id="copyButton" class="input-group-addon btn" title="Click to copy">
      <i class="fa fa-clipboard" aria-hidden="true"></i>
    </span>
-   <input type="text" id="copyTarget" class="form-control" value="{{ url('/member/aff/' . $user->uid) }}">
-   <span class="copied">Copied !</span>
+   <input type="text" id="copyTarget" class="form-control" value="{{ url('/member/aff/' . $user->uid) }}" readonly>
+ 
+   
  </div>
+ 
+
                             
 
                             

@@ -62,7 +62,7 @@
                 <div class="header-log-reg text-right">
                     @auth
                         <ul>
-                            <li><a href="/">{{ Auth::user()->name }}</a></li>
+                            <li><a href="{{ url('/profil') }}">{{ Auth::user()->name }}</a></li>
                             <li><small>|</small></li>
                             <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>

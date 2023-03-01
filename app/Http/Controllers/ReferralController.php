@@ -30,9 +30,11 @@ class ReferralController extends Controller
             if (is_numeric($any)) {
                 $data = DB::table('users')
                     ->join('user_details', 'user_details.user_id', '=', 'users.id')
-                    ->select([
-                        'users.*', 'user_details.point'
-                    ])
+                    ->join('banks', 'user_details.bank_id', '=', 'banks.id')
+                ->select([
+                    'users.*', 'user_details.point','user_details.account_number',
+                    'banks.name as nama_bank'
+                ])
                     ->where('users.id', $any)
                     ->first();
 
@@ -85,8 +87,10 @@ class ReferralController extends Controller
         try {
             $user = DB::table('users')
                 ->join('user_details', 'user_details.user_id', '=', 'users.id')
+                ->join('banks', 'user_details.bank_id', '=', 'banks.id')
                 ->select([
-                    'users.*', 'user_details.point'
+                    'users.*', 'user_details.point','user_details.account_number',
+                    'banks.name as nama_bank'
                 ])
                 ->where('users.id', $id)
                 ->first();

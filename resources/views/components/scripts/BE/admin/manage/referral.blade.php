@@ -22,6 +22,8 @@
 
                 $('#name').val(data.name)
                 $('#point').val(data.point)
+                $('#bank').val(data.nama_bank)
+                $('#account_number').val(data.account_number)
 
                 $('#transferModal').modal('show');
 

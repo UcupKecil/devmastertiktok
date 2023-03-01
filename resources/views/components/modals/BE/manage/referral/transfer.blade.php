@@ -14,6 +14,14 @@
                         <input type="text" id="name" class="form-control" readonly>
                     </div>
                     <div class="form-group">
+                        <label>Bank</label>
+                        <input type="text" id="bank" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Rekening</label>
+                        <input type="text" id="account_number" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
                         <label>Saldo member</label>
                         <input type="text" id="point" class="form-control" readonly>
                     </div>

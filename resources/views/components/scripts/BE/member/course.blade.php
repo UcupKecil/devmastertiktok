@@ -17,7 +17,7 @@
                     $('#video').html('');
 
                     $('#video').append(
-                        `<video style="max-width: 540px;" class="container" 
+                        `<video style="max-width: 740px;" class="container" 
                          controls  controlsList="nodownload" oncontextmenu="return false;" poster="/assets/images/courses/video/poster/${response.course_id}/${response.poster}">
                         <source src="/assets/videos/courses/${response.course_id}/${response.video}">
                     </video>`

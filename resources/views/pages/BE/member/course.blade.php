@@ -10,9 +10,9 @@
         <br>
         <br>
         <br>
-        <div class="container " style="max-width: 540px;" id="video">
+        <div class="container " style="max-width: 740px;" id="video">
           
-                        <video  class="container" style="max-width: 540px;" controls
+                        <video  class="container" style="max-width: 740px;" controls
                         controlsList="nodownload" oncontextmenu="return false;"
                             >
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}"

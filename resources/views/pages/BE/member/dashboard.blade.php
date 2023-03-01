@@ -140,5 +140,6 @@
     @include('components.scripts.CDN.font-awesome')
     @include('components.scripts.CDN.lightbox2')
     @include('components.scripts.CDN.sweetalert2')
+  
     @include($js)
 @endpush

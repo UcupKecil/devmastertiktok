@@ -18,7 +18,7 @@
 
                     $('#video').append(
                         `<video style="width: 100%;
-                            height: auto;" controls poster="/assets/images/courses/video/poster/${response.course_id}/${response.poster}">
+                            height: auto;" controls  controlsList="nodownload" oncontextmenu="return false;" poster="/assets/images/courses/video/poster/${response.course_id}/${response.poster}">
                         <source src="/assets/videos/courses/${response.course_id}/${response.video}">
                     </video>`
                     );
@@ -30,3 +30,24 @@
         });
     });
 </script>
+<script>
+    // Disable right-click
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+function ctrlShiftKey(e, keyCode) {
+  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+}
+
+document.onkeydown = (e) => {
+  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+  if (
+    event.keyCode === 123 ||
+    ctrlShiftKey(e, 'I') ||
+    ctrlShiftKey(e, 'J') ||
+    ctrlShiftKey(e, 'C') ||
+    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+  )
+    return false;
+};
+</script>
+

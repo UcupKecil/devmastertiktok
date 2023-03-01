@@ -84,7 +84,7 @@ class ReferralDetailController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $pleaseRemove = base_path('public/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster);
                 } else {
-                    $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
+                    $pleaseRemove = '/home/masterti/public_html/assets/images/courses/video/poster/' . $course->id . '/' . $oldData->poster;
                 }
 
                 if (file_exists($pleaseRemove)) {
@@ -94,7 +94,7 @@ class ReferralDetailController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $pleaseRemove = base_path('public/assets/videos/courses/' . $course->id . '/' . $oldData->video);
                 } else {
-                    $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/videos/courses/' . $course->id . '/' . $oldData->video;
+                    $pleaseRemove = '/home/masterti/public_html/assets/videos/courses/' . $course->id . '/' . $oldData->video;
                 }
 
                 if (file_exists($pleaseRemove)) {

@@ -111,8 +111,8 @@ class SettingController extends Controller
                         $pleaseRemove = base_path('public/assets/images/settings/' . $setting->image);
                         $pleaseRemoveBanner = base_path('public/assets/images/settings/' . $setting->imagebanner);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings/' . $setting->image;
-                        $pleaseRemoveBanner = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings/' . $setting->imagebanner;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/settings/' . $setting->image;
+                        $pleaseRemoveBanner = '/home/masterti/public_html/assets/images/settings/' . $setting->imagebanner;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/settings/' . $setting->image;
                     }
 
@@ -134,8 +134,8 @@ class SettingController extends Controller
                         $destination        = base_path('public/assets/images/settings');
                         $destinationbanner  = base_path('public/assets/images/settings');
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings';
-                        $destinationbanner  = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings';
+                        $destination        = '/home/masterti/public_html/assets/images/settings';
+                        $destinationbanner  = '/home/masterti/public_html/assets/images/settings';
                         //$destination        = getDevelopmentPublicPath() . '/assets/images/settings';
                     }
 
@@ -158,7 +158,7 @@ class SettingController extends Controller
                         $pleaseRemove = base_path('public/assets/images/settings/' . $setting->image);
                        
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings/' . $setting->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/settings/' . $setting->image;
                        
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/settings/' . $setting->image;
                     }
@@ -179,7 +179,7 @@ class SettingController extends Controller
                         $destination        = base_path('public/assets/images/settings');
                         
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings';
+                        $destination        = '/home/masterti/public_html/assets/images/settings';
                         
                         //$destination        = getDevelopmentPublicPath() . '/assets/images/settings';
                     }
@@ -204,7 +204,7 @@ class SettingController extends Controller
                         $pleaseRemoveBanner = base_path('public/assets/images/settings/' . $setting->imagebanner);
                     } else {
                        
-                        $pleaseRemoveBanner = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings/' . $setting->imagebanner;
+                        $pleaseRemoveBanner = '/home/masterti/public_html/assets/images/settings/' . $setting->imagebanner;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/settings/' . $setting->image;
                     }
 
@@ -225,7 +225,7 @@ class SettingController extends Controller
                         $destinationbanner  = base_path('public/assets/images/settings');
                     } else {
                        
-                        $destinationbanner  = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/settings';
+                        $destinationbanner  = '/home/masterti/public_html/assets/images/settings';
                         //$destination        = getDevelopmentPublicPath() . '/assets/images/settings';
                     }
 

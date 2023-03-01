@@ -55,7 +55,7 @@ class CourseController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/courses/' . $course->image);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/' . $course->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/courses/' . $course->image;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -160,7 +160,7 @@ class CourseController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/images/courses');
                 } else {
-                    $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses';
+                    $destination        = '/home/masterti/public_html/assets/images/courses';
                 }
 
                 $request->file('image')->move($destination, $image);
@@ -218,7 +218,7 @@ class CourseController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/courses/' . $course->image);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses/' . $course->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/courses/' . $course->image;
                     }
 
                     if (file_exists($pleaseRemove)) {
@@ -232,7 +232,7 @@ class CourseController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/courses');
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/courses';
+                        $destination        = '/home/masterti/public_html/assets/images/courses';
                     }
 
                     $request->file('image')->move($destination, $image);

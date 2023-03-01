@@ -126,7 +126,7 @@ class HistoryController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/history');
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/history';
+                        $destination        = '/home/masterti/public_html/assets/images/history';
                     }
                     $request->file('image')->move($destination, $image);
                     DB::transaction(function () use ($debit, $id,$image) {

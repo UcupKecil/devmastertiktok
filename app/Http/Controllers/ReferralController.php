@@ -121,7 +121,7 @@ class ReferralController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/referral');
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/referral';
+                        $destination        = '/home/masterti/public_html/assets/images/referral';
                     }
                     $request->file('image')->move($destination, $image);
                     DB::transaction(function () use ($debit, $id,$image) {

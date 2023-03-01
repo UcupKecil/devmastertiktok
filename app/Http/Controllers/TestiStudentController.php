@@ -55,7 +55,7 @@ class TestiStudentController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/testi_students/' . $testi_student->image);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/testi_students/' . $testi_student->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/testi_students/' . $testi_student->image;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/testi_students/' . $testi_student->image;
                     }
 
@@ -160,7 +160,7 @@ class TestiStudentController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/images/testi_students');
                 } else {
-                    $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/testi_students';
+                    $destination        = '/home/masterti/public_html/assets/images/testi_students';
                     //$destination        = getDevelopmentPublicPath() . '/assets/images/testi_students';
                 }
 
@@ -221,7 +221,7 @@ class TestiStudentController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/testi_students/' . $testi_student->image);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/testi_students/' . $testi_student->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/testi_students/' . $testi_student->image;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/testi_students/' . $testi_student->image;
                     }
 
@@ -236,7 +236,7 @@ class TestiStudentController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/testi_students');
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/testi_students';
+                        $destination        = '/home/masterti/public_html/assets/images/testi_students';
                         //$destination        = getDevelopmentPublicPath() . '/assets/images/testi_students';
                     }
 

@@ -55,7 +55,7 @@ class BenefitController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/benefits/' . $benefit->image);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/benefits/' . $benefit->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/benefits/' . $benefit->image;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/benefits/' . $benefit->image;
                     }
 
@@ -158,7 +158,7 @@ class BenefitController extends Controller
                 if (env('APP_ENV') == 'local') {
                     $destination        = base_path('public/assets/images/benefits');
                 } else {
-                    $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/benefits';
+                    $destination        = '/home/masterti/public_html/assets/images/benefits';
                     //$destination        = getDevelopmentPublicPath() . '/assets/images/benefits';
                 }
 
@@ -216,7 +216,7 @@ class BenefitController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $pleaseRemove = base_path('public/assets/images/benefits/' . $benefit->image);
                     } else {
-                        $pleaseRemove = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/benefits/' . $benefit->image;
+                        $pleaseRemove = '/home/masterti/public_html/assets/images/benefits/' . $benefit->image;
                         //$pleaseRemove = getDevelopmentPublicPath() . '/assets/images/benefits/' . $benefit->image;
                     }
 
@@ -231,7 +231,7 @@ class BenefitController extends Controller
                     if (env('APP_ENV') == 'local') {
                         $destination        = base_path('public/assets/images/benefits');
                     } else {
-                        $destination        = '/home/masterti/subdomain/dev.mastertiktokagency.com/assets/images/benefits';
+                        $destination        = '/home/masterti/public_html/assets/images/benefits';
                         //$destination        = getDevelopmentPublicPath() . '/assets/images/benefits';
                     }
 

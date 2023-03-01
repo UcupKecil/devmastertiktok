@@ -464,7 +464,10 @@
                                 </div>
                                 <b><input type="hidden" class="" id="demo"></b>
                                 <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
-                                    <img src="https://react.mastertiktokagency.com/Photos/flash-sale.webp"
+                                    
+                                </div>
+                                <div class="justify-content-center align-items-center">
+                                <img src="https://react.mastertiktokagency.com/Photos/flashsale.png"
                                         alt="" style="width:88px;height:82px;">
                                     <b>
                                         <p>
@@ -475,8 +478,6 @@
                                             <a style="color: white;background: #000;" id="detik"></a>
                                         </p>
                                     </b>
-                                </div>
-                                <div class="justify-content-center align-items-center">
                                     <a href="{{ '/auth/register/' . $slug }}"
                                         class="btn btn-success rounded-3 custom-btn"><i class=""></i>DAFTAR
                                         SEKARANG</a>

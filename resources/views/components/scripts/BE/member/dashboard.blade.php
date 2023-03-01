@@ -12,18 +12,46 @@
     }
 </script>
 <script>
-    function myFunction() {
-  // Get the text field
-  var copyText = document.getElementById("myInput");
+    (function() {
+  "use strict";
 
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
+  function copyToClipboard(elem) {
+    var target = elem;
 
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
+    // select the content
+    var currentFocus = document.activeElement;
 
-  // Alert the copied text
-  alert("Copied the text: " + copyText.value);
-}
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+
+    // copy the selection
+    var succeed;
+
+    try {
+      succeed = document.execCommand("copy");
+    } catch (e) {
+      console.warn(e);
+
+      succeed = false;
+    }
+
+    // Restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+      currentFocus.focus();
+    }
+
+    if (succeed) {
+      $(".copied").animate({ top: -25, opacity: 0 }, 700, function() {
+        $(this).css({ top: 0, opacity: 1 });
+      });
+    }
+
+    return succeed;
+  }
+
+  $("#copyButton, #copyTarget").on("click", function() {
+    copyToClipboard(document.getElementById("copyTarget"));
+  });
+})();
+
     </script>

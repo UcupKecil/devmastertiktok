@@ -1,5 +1,51 @@
 @extends('layouts.FE.page')
 @push('style')
+<style>
+    .input-group {
+  margin-top: 30px;
+  position: relative;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group-addon {
+  border: none;
+}
+
+.linkname {
+  display: none;
+}
+
+#copyButton {
+  cursor: pointer;
+  background: #f1bb3a;
+}
+
+#copyTarget {
+  border-left: none;
+}
+
+.copied {
+  opacity: 1;
+  position: absolute;
+  left: 55px;
+}
+
+@media (min-width: 768px) {
+  .copied {
+    left: 135px;
+  }
+
+  .linkname {
+    display: block;
+    background: #3b3e45;
+    color: #fff;
+  }
+}
+
+    </style>
     @include('components.styles.CDN.dataTables')
     @include('components.styles.CDN.font-awesome')
     @include('components.styles.CDN.lightbox2')
@@ -95,15 +141,22 @@
                         <a class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="true">Link Referral
                             Saya</a>
                     </div>
+
                     <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body current">
+                        <div class="input-group">
+   
+   <span id="copyButton" class="input-group-addon btn" title="Click to copy">
+     <i class="fa fa-clipboard" aria-hidden="true"></i>
+   </span>
+   <input type="text" id="copyTarget" class="form-control" value="{{ url('/member/aff/' . $user->uid) }}">
+   <span class="copied">Copied !</span>
+ </div>
+                            
 
-                            <!-- <a href="javascript:void(0)" onclick="copy()"
-                                id="myReferral">{{ url('/member/aff/' . $user->uid) }}</a> -->
+                            
 
-                                <input type="text" value="{{ url('/member/aff/' . $user->uid) }}" id="myInput">
                                
-                                <button onclick="myFunction()">Copy text  <a  class="fas fa-copy"></a> </button>
                         </div>
                         
                     </div>
@@ -111,6 +164,9 @@
             </div>
         </div>
         </section>
+
+        
+
         <section>
         @if ($referralHistory)
         <div class="container" style="color:#000;">

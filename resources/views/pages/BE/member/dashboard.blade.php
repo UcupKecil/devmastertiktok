@@ -97,9 +97,15 @@
                     </div>
                     <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
                         <div class="card-body current">
-                            <a href="javascript:void(0)" onclick="copy()"
-                                id="myReferral">{{ url('/member/aff/' . $user->uid) }}</a>
+
+                            <!-- <a href="javascript:void(0)" onclick="copy()"
+                                id="myReferral">{{ url('/member/aff/' . $user->uid) }}</a> -->
+
+                                <input type="text" value="{{ url('/member/aff/' . $user->uid) }}" id="myInput">
+                               
+                                <button onclick="myFunction()">Copy text  <a  class="fas fa-copy"></a> </button>
                         </div>
+                        
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@
         <div class="container " style="max-width: 720px;" id="video">
           
                         <video  class="container" style="max-width: 720px;" controls
+                        controlsList="nodownload"
                             >
                             <source src="{{ asset('/assets/videos/courses/' . $course->id . '/' . $onDisplay->video) }}"
                            >

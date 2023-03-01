@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\UserDetail;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function detail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,10 @@ Route::group([
     'middleware' => ['auth']
 ], function () {
     Route::get('/dashboard', [StaticPageController::class, 'dashboard']);
+    Route::get('/profil', [ProfileController::class, 'index']);
+    Route::get('/profil/{id}', [ProfileController::class, 'show']);
+    Route::post('/profil/edit/data', [ProfileController::class, 'updateData']);
+    Route::post('/profil/edit/password', [ProfileController::class, 'updatePassword']);
+  
+ 
 });

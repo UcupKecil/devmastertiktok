@@ -47,6 +47,7 @@ class AuthController extends Controller
             ];
 
             Auth::attempt($data, $remember);
+            $detail = Auth::user()->convection;
 
             if (Auth::check()) {
                 return redirect()->to('/dashboard');

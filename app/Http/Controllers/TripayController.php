@@ -146,10 +146,10 @@ class TripayController extends Controller
             $url    = 'https://tripay.co.id/api-sandbox/transaction/detail?reference=' . $ref;
             $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
         } else {
-            $url    = 'https://tripay.co.id/api-sandbox/transaction/detail?reference=' . $ref;
-            $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
-            // $url    = 'https://tripay.co.id/api/transaction/detail?reference=' . $ref;
-            // $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
+            // $url    = 'https://tripay.co.id/api-sandbox/transaction/detail?reference=' . $ref;
+            // $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
+            $url    = 'https://tripay.co.id/api/transaction/detail?reference=' . $ref;
+            $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
         }
 
         $client = new Client();

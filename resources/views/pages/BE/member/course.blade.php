@@ -77,5 +77,5 @@
 @endsection
 @push('script')
     @include($js)
-    <!-- @include('components.scripts.CDN.disable-devtool') -->
+    @include('components.scripts.CDN.disable-devtool')
 @endpush

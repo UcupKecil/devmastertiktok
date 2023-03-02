@@ -30,7 +30,7 @@
         });
     });
 </script>
-<!-- <script>
+<script>
     // Disable right-click
 document.addEventListener('contextmenu', (e) => e.preventDefault());
 
@@ -49,5 +49,5 @@ document.onkeydown = (e) => {
   )
     return false;
 };
-</script> -->
+</script>
 

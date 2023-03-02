@@ -459,7 +459,7 @@
                             <div class="m-5">
                                 <div class="input-group mb-3 mt-4">
                                     <img class="mx-auto d-block w-100"
-                                        src="https://react.mastertiktokagency.com/Photos/INVESTASI.jpg"
+                                        src="https://react.mastertiktokagency.com/Photos/mta.jpg"
                                         alt="">
                                 </div>
                                 <b><input type="hidden" class="" id="demo"></b>

@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="course-content">
                                     @if ($course->crossed_price > $course->price)
-                                        <span class="course-price">
+                                        <span style="color:yellow; background:#000;font-size: 20px;" class="course-price">
                                             <del>Rp. {{ number_format($course->crossed_price) }}</del>
                                         </span>
                                         <br>
@@ -64,16 +64,7 @@
                                         <a
                                             href="{{ Auth::user() ? '#' : '/auth/register/' . $course->slug }}">{{ $course->name }}</a>
                                     </h3>
-                                    {{-- <div class="course-rating">
-                                        <span class="star-rating-group">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </span>
-                                        <span class="course-rating-count">(2 Review)</span>
-                                    </div> --}}
+                                    
                                     <div class="course-content-footer">
                                         <ul>
                                         <div class="category-btn btn-default text-center">

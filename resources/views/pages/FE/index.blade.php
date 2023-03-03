@@ -41,16 +41,7 @@
        @if (count($courses) > 0)
         <section class="course-area bg-gray">
             <div class="container">
-                <div class="row">
-                    <!--start heading-->
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="sec-heading text-center">
-                            <h4>courses</h4>
-                            <h2>Explore Popular Courses</h2>
-                        </div>
-                    </div>
-                    <!--end heading-->
-                </div>
+                
                 <div class="row">
                     @foreach ($courses as $course)
                         <div class="col-lg-4 col-md-6">
@@ -85,11 +76,10 @@
                                     </div> --}}
                                     <div class="course-content-footer">
                                         <ul>
-                                            <li class="course-duration">
-                                                <i class="fa fa-clock-o"></i>
-                                                {{ getDurationString($course->duration) }}
-                                            </li>
-                                            {{-- <li class="course-user"><i class="fa fa-user-o"></i> 3</li> --}}
+                                        <div class="category-btn btn-default text-center">
+                                                <a href="{{ Auth::user() ? '#' : '/auth/register/' . $course->slug }}">Join Kelas</a>
+                                        </div>
+                                           
                                         </ul>
                                     </div>
                                 </div>

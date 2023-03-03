@@ -103,62 +103,7 @@
     @endif
     <!--end course area-->
     
-    <!--start testimonial-area-->
-    @if (count($testi_students) > 0)
-    <section class="testimonial-area">
-        <div class="container">
-            <div class="row">
-                <!--start sec-heading-->
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="sec-heading text-center">
-                        <h4>testimonial</h4>
-                        <h2>Siswa Kami</h2>
-                    </div>
-                </div>
-            </div>
-            <!--end sec-heading-->
-            <div class="row">
-                <!--start testi-single-->
-                @foreach ($testi_students as $testi_student)
-                <div class="col-md-4">
-                    <div class="testi-single">
-                        <div class="testi-cont-inner">
-                            <div class="testi-quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                            <div class="testi-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div style="word-wrap: break-word;">
-                            {!! $testi_student->detail !!}
-                            </div>
-                           
-                        </div>
-                        <div class="testi-client-info">
-                            <div class="testi-client-img">
-                                <img src="{{ asset('/assets/images/testi_students/' . $testi_student->image) }}"
-                                    class="img-fluid" alt="image">
-                            </div>
-                            <div class="testi-client-details">
-                                <h4>{{ $testi_student->name }}</h4>
-                                <h6>{{ $testi_student->pekerjaan }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end testi-single-->
-                @endforeach
-                
-                
-            </div>
-        </div>
-    </section>
-    @endif
-    <!--end testimonial area-->
+    
     
     <!--start why choose area-->
     @if (count($benefits) > 0)

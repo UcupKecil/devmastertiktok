@@ -97,13 +97,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="category-btn btn-default text-center">
-                            <a href="#">all courses</a>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </section>
     @endif

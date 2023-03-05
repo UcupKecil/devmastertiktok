@@ -74,6 +74,21 @@
                 </div>
             </div>
 </section>
+<section>
+<div class="container">
+            <div class="caption-content text-center" >
+               
+                <ul>
+                    
+                    <li><a href="https://t.me/+h8TG3N2YSjQwYjE1" style="background:#22b1f9;color:#fff"  target="_blank">Join Ke Group
+                     <br>Diskusi MTA</a></li>
+                    <li><a class="btn-bg" href="https://t.me/+vwBse3DhwLA0YTk1" style="background:#22b1f9;color:#fff"  target="_blank">Join Ke Group <br> Info Penting MTA</a></li>
+                </ul>
+            </div>
+        </div>
+<div class="course-content-footer">          
+                                    </div>
+</section>
 @endsection
 @push('script')
     @include($js)

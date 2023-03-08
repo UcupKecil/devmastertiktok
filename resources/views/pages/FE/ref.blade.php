@@ -480,7 +480,7 @@
                                         </p>
                                     </b>
                                     <a href="{{ '/auth/register/' . $slug }}"
-                                        class="btn btn-success rounded-3 custom-btn"><i class=""></i>DAFTAR
+                                        class="btn btn-success"><i class=""></i>DAFTAR
                                         SEKARANG</a>
                                 </div>
                             </div>

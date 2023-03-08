@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <title>{{ env('APP_NAME') }} | {{ $title }}</title>
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/templates/omexo/assets/images/favicon.png') }}">
+    <link rel="shortcut icon" type="image/ico" href="{{ asset('assets/img/favicon.ico') }}">
     <!--bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/bootstrap.min.css') }}">
     <!--owl carousel css-->

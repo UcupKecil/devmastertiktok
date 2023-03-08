@@ -84,7 +84,8 @@ class TripayController extends Controller
                     DB::table('point_transactions')->insert([
                         'created_at' => date('Y-m-d H:i:s'),
                         'credit'    => $credit,
-                        'user_id'   => $order->referred_by
+                        'user_id'   => $order->referred_by,
+                        'image'   => '',
                     ]);
 
                     $credit = DB::table('point_transactions')->where('user_id', $order->referred_by)->sum('credit');

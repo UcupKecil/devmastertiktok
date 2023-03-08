@@ -12,10 +12,10 @@ class TripayController extends Controller
     public function adminFee($payment, $total)
     {
         if (env('APP_ENV') == 'local') {
-            $url    = 'https://tripay.co.id/api-sandbox/merchant/payment-channel?code=' . $payment;
+            $url    = 'https://tripay.co.id/api-sandbox/merchant/fee-calculator?code=' . $payment . '&amount=' . intval($total);
             $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
         } else {
-            $url    = 'https://tripay.co.id/api/merchant/payment-channel?code=' . $payment;
+            $url    = 'https://tripay.co.id/api/merchant/fee-calculator?code=' . $payment . '&amount=' . intval($total);
             $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
         }
 
@@ -24,23 +24,16 @@ class TripayController extends Controller
         $response   = $client->request('GET', $url, [
             'headers'   => [
                 'Authorization' => $authorization
-            ]
+            ],
         ]);
 
         $data   = json_decode($response->getBody(), true);
 
-        $flat_merchant      = $data['data'][0]['fee_merchant']['flat'];
-        $percent_merchant   = $data['data'][0]['fee_merchant']['percent'];
-
-        $flat       = $data['data'][0]['fee_customer']['flat'];
-        $percent    = $data['data'][0]['fee_customer']['percent'];
+        $flat       = $data['data'][0]['fee']['flat'];
+        $percent    = $data['data'][0]['fee']['percent'];
 
         if ($percent > 0) {
-            $phase1 = floatval($total);
-            $phase2 = (($phase1 * ($percent / 100) + $flat));
-            $phase3 = ceil($phase2);
-
-            $fee    = intval($phase3);
+            $fee    = intval($percent);
         } else {
             $fee    = $flat;
         }
@@ -67,7 +60,7 @@ class TripayController extends Controller
             if ($order) {
                 DB::table('orders')->where('reference', $reference)->update([
                     'status'        => 'paid',
-                    'updated_at'    => date('Y-m-d H:i:s', strtotime($paid_at))
+                    'updated_at'    => date('Y-m-d H:i:s', $paid_at)
                 ]);
 
                 if ($order->referred_by) {
@@ -84,8 +77,7 @@ class TripayController extends Controller
                     DB::table('point_transactions')->insert([
                         'created_at' => date('Y-m-d H:i:s'),
                         'credit'    => $credit,
-                        'user_id'   => $order->referred_by,
-                        'image'   => '',
+                        'user_id'   => $order->referred_by
                     ]);
 
                     $credit = DB::table('point_transactions')->where('user_id', $order->referred_by)->sum('credit');
@@ -147,8 +139,6 @@ class TripayController extends Controller
             $url    = 'https://tripay.co.id/api-sandbox/transaction/detail?reference=' . $ref;
             $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
         } else {
-            // $url    = 'https://tripay.co.id/api-sandbox/transaction/detail?reference=' . $ref;
-            // $authorization = 'Bearer DEV-7xaQXEMtSUc5OzLFSfyJWeZfxCPUhM0VoR5HKhvT';
             $url    = 'https://tripay.co.id/api/transaction/detail?reference=' . $ref;
             $authorization = 'Bearer eAc71WSvQAc1L2b62vtQNKVzTvlMSosvJf0BPuY5';
         }

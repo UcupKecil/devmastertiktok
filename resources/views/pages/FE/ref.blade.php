@@ -462,7 +462,7 @@
                                         src="https://react.mastertiktokagency.com/Photos/mta.jpg"
                                         alt="">
                                 </div>
-                                <b>Promo akan berakhir Pada:</b>
+                                <b style="color:#000">Promo akan berakhir Pada:</b>
                                 <b><input type="hidden" class="" id="demo"></b>
                                 <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
                                     

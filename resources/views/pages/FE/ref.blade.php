@@ -739,7 +739,7 @@
     <script>
         new Accordion('.accordion-container');
     </script>
-    <script src="https://react.mastertiktokagency.com/js/count.js"></script>
+    <script src="https://react.mastertiktokagency.com/js/count.js?version=7"></script>
 </body>
 
 </html>

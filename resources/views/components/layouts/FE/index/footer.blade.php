@@ -35,7 +35,7 @@
                                 <p style="color:white;">Facebook</p>
                             </div>
                         </a>
-                        <a target="_blank" href="https://www.youtube.com/channel/UCV25phIpBTG77SKXbL0szEQ" class="col-lg-6 col-md-6 col-sm-12 d-flex flex-row text-decoration-none my-2 sosial">
+                        <a target="_blank" href="https://youtube.com/@bangnicomta" class="col-lg-6 col-md-6 col-sm-12 d-flex flex-row text-decoration-none my-2 sosial">
                             <div class="col-lg-2 col-md-3 col-sm-3">
                                 <img src="{{ asset('assets/img/youtube.svg') }}">
                             </div>
@@ -43,7 +43,7 @@
                                 <p style="color:white;">YouTube</p>
                             </div>
                         </a>
-                        <a target="_blank" href="https://www.instagram.com/jabarcodingcamp/" class="col-lg-6 col-md-6 col-sm-12 d-flex flex-row text-decoration-none my-2 sosial">
+                        <a target="_blank" href="https://instagram.com/nico_strato92?igshid=YmMyMTA2M2Y=" class="col-lg-6 col-md-6 col-sm-12 d-flex flex-row text-decoration-none my-2 sosial">
                             <div class="col-lg-2 col-md-3 col-sm-3">
                                 <img src="{{ asset('assets/img/instagram.svg') }}">
                             </div>
@@ -51,7 +51,7 @@
                                 <p style="color:white;">instagram</p>
                             </div>
                         </a>
-                        <a target="_blank" href="https://vt.tiktok.com/ZGJk9hcUV/" class="col-lg-6 col-md-6 col-sm-12 d-flex flex-row text-decoration-none my-2 sosial">
+                        <a target="_blank" href="https://www.tiktok.com/@bangnicostrato?_t=8aS9d6GWheb&_r=1" class="col-lg-6 col-md-6 col-sm-12 d-flex flex-row text-decoration-none my-2 sosial">
                             <div class="col-lg-2 col-md-3 col-sm-3">
                                 <img src="{{ asset('assets/img/TikTok.svg') }}">
                             </div>

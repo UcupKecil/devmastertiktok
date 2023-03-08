@@ -467,7 +467,7 @@
                                     
                                 </div>
                                 <div class="justify-content-center align-items-center">
-                                <img src="https://react.mastertiktokagency.com/Photos/flashsale.png"
+                                <img src="https://react.mastertiktokagency.com/Photos/panah.gif"
                                         alt="" style="width:88px;height:82px;">
                                     <b>
                                         <p>
